@@ -17,7 +17,17 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getHouse: function() {
+    return $.ajax({
+      headers: {
+        'accept': 'application/json',
+        'apikey' : 'dcc3e13d6cf56f0afa62028c6856b7a7'
+      },
+      url: "api/examples",
+      type: "GET"
+    });
+  },
+  getHouse: function() {
     return $.axios({
       headers: {
         'accept': 'application/json',
