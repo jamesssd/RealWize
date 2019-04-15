@@ -1,92 +1,66 @@
-<h1> Real Wize</h1>
+<div class="jumbotron">
+      <h1 class="text-center">Real Wize</h1>
+    </div>
 
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <ul class="list-group todo-list">
-          <li class="list-group-item new-item">
-            <form id="todo-form">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <form id="todo-form">
               <div class="container">
                 <div class="row">
                   <div class="col-10">
                     <input class="search-city form-control" placeholder="Enter City Name" type="text" />
                  
                   </div>
+                  
                   <div class="col-2">
-                    {{!-- <button type="submit" class="btn btn-success">Search</button> --}}
-                   <a class="btn btn-success "  placeholder="Enter City Name">Search</a>
+                    <button type="submit" class="btn btn-danger text-white">Search</button>
+                   {{!-- <a class="btn btn-danger text-white" type = "submit">Search</a> --}}
                    {{!-- <a class="btn btn-success " href="/api/homeList" placeholder="Enter City Name">Search</a> --}}
                   </div>
                 </div>
               </div>
             </form>
-          </li>
-          <span class="list-container">
-            <li>
-              <p>{{value}}</p>
-        {{#each list}}
+        </div>
+      </div>
+        <br>
+
+      {{#each list}}
+      {{!-- making each card a hyperlink --}}
+      
+      <div class="row">
         
+        <div class="col-sm-12 col-sm-offset-2">
+          <div class="card mb-3 border border-primary" ">
+          <div class="row no-gutters">
+         <div class="col-md-4">
+           <a href = "#">
+         {{!-- <img src="home.jpg" class="card-img" alt="Home-image" > --}}
+         <img src="../public/images/home.jpg" class="card-img" alt="Home-image" >
+        </a>
+        </div>
+        <div class="col-md-8">
+       <div class="card-body">
+         <a href = "#">
+        <h5 class="card-title">Price</h5>
         
-     <p> Address:{{this.address}}</p>
-      <p>Year of Construction : {{Year_built}}</p>
-      <p>Lot Size : {{lot_size}} acres</p>
-      <p>Property Type : {{propclass}}</p>
-      <p>Listed date : {{date_listed}}</p>
-     <p> Number of beds and Baths : {{rooms_amenities}}</p>
-     <hr>
-      </li>
+        <p class="card-text">{{rooms_amenities}}</p>
+        <p class="card-text">{{rooms_amenities}} | {{lot_size}}</p>
+        <p class="card-text">{{address}}</p>
+        <p class="card-text"><small class="text-muted">Listing provided by ATTOM</small></p>
+      </a>
+      </div>
+    </div>
+  </div>
   
-     {{/each}}
-    </ul>
-            {{!-- {{value}} --}}
-          </span>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-{{!-- From starter kit --}}
-{{!-- <div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script> --}}
+{{/each}}
+
+</div>
+
+</div>
+
+
+

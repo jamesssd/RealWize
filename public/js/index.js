@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // console.log("hello");
-  var homeListArray = [];
+  //var homeListArray = [];
   // Getting a reference to the input field where user adds a city name
   var $cityInput = $("input.search-city");
   // Our new todos will go inside the todoContainer
@@ -17,6 +17,7 @@ $(document).ready(function() {
   
   // This function makes api call to get api data for city
   function getPropertListApi(event) {
+    console.log("inserting values");
     event.preventDefault();
    //setting header info to send it as the last argument in axios get request
     var config = {
