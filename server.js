@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var path = require('path');
 
 
 
@@ -16,12 +17,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+app.engine("handlebars", exphbs({defaultLayout: "main", layoutsDir: __dirname + '/views/layouts/'}));
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "handlebars");
 
 // Routes
@@ -34,14 +31,14 @@ var syncOptions = { force: false };
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
+ 
 }
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
+      "==> 🌎  Listening on port %s. Visit http://localhost:"+
       PORT
     );
   });

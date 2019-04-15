@@ -27,13 +27,13 @@ var API = {
       type: "GET"
     });
   },
-  getHouse: function() {
+  getHouseBack: function() {
     return $.axios({
       headers: {
         'accept': 'application/json',
-        'apikey' : 'dcc3e13d6cf56f0afa62028c6856b7a7'
+        'apikey' : 'ea70d1fe2847036f632e66ad5a241d16'
       },
-      url: "api/examples",
+      url: "https://search.onboard-apis.com/propertyapi/v1.0.0/property/expandedprofile?address1=4529%20Winona%20Court&address2=Denver%2C%20CO",
       type: "GET"
     });
   },
@@ -47,7 +47,7 @@ var API = {
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
-  API.getExamples().then(function(data) {
+  API.getHouseBack().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.text)
