@@ -2,25 +2,25 @@ module.exports = function(sequelize, DataTypes) {
     // Add code here to create a Post model
     var Housing = sequelize.define("Housing", {
     
-      price: {
-        type: DataTypes.INTEGER,
+      address: {
+        type: DataTypes.STRING,
         validate: {
           len: [1]
         }
       },
-      last_price: {
+      Year_built: {
         type: DataTypes.INTEGER,
         validate: {
           len: [1]
         }
       },
       lot_size: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         validate: {
           len: [1]
         }
       },
-      neighborhood: {
+      propclass: {
         type: DataTypes.STRING,
         validate: {
           len: [1]

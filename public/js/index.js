@@ -1,114 +1,93 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function() {
+  // console.log("hello");
+  //var homeListArray = [];
+  // Getting a reference to the input field where user adds a city name
+  var $cityInput = $("input.search-city");
+  // Our new todos will go inside the todoContainer
+  //var $propertListContainer = $(".list-container");
+  // Adding event listeners for deleting, editing, and adding 
+  // $(document).on("click", "button.delete", deleteTodo);
+  // $(document).on("click", "button.complete", toggleComplete);
+  // $(document).on("click", ".todo-item", editTodo);
+  // $(document).on("keyup", ".todo-item", finishEdit);
+  // $(document).on("blur", ".todo-item", cancelEdit);
+  $(document).on("submit", "#todo-form", getPropertListApi);
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
+ 
+  
+  // This function makes api call to get api data for city
+  function getPropertListApi(event) {
+    console.log("inserting values");
+    event.preventDefault();
+   //setting header info to send it as the last argument in axios get request
+    var config = {
+      headers: 
+      {
         'accept': 'application/json',
         'apikey' : 'dcc3e13d6cf56f0afa62028c6856b7a7'
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getHouse: function() {
-    return $.ajax({
-      headers: {
-        'accept': 'application/json',
-        'apikey' : 'dcc3e13d6cf56f0afa62028c6856b7a7'
-      },
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  getHouseBack: function() {
-    return $.axios({
-      headers: {
-        'accept': 'application/json',
-        'apikey' : 'ea70d1fe2847036f632e66ad5a241d16'
-      },
-      url: "https://search.onboard-apis.com/propertyapi/v1.0.0/property/expandedprofile?address1=4529%20Winona%20Court&address2=Denver%2C%20CO",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
+        }
+    };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getHouseBack().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
+    // Getting the value from city textbox
+    var cityName = $cityInput.val().trim();
+    $cityInput.val("");
+     //axios get method to get api data    
+    axios.get('https://search.onboard-apis.com/propertyapi/v1.0.0/property/snapshot?cityname='+cityName, config)
+    .then(function (response) {
+     // handle success
+      console.log(response);
+      for (i in response.data.property) {
+  
+       //Getting bedbath
+         var bedNumbers = response.data.property[i].building.rooms.bathstotal;
+        var bathNumbers = response.data.property[i].building.rooms.beds;
+        var bedbath =  bedNumbers+"beds"+bathNumbers+"baths";
+        //console.log("address"+v);
+        var houseDetails = {
+          homeAddress: response.data.property[i].address.oneLine,
+          yearBuilt: response.data.property[i].summary.yearbuilt,
+          lotSize: response.data.property[i].lot.lotSize1,
+          propClass: response.data.property[i].summary.propclass,
+          date_listed: response.data.property[i].vintage.pubDate,
+          // text: $newItemInput.val().trim(),
+          roomsAmenities: bedbath
+        };
+    
+        // POST route for saving a new todo
+        // This function inserts a new todo into our database and then updates the view
+        $.post("/api/homeList", houseDetails,function(){
+      
+       })
+     }
+     
+          // This function grabs propertlists from the database and updates the view
+       // function getHomeList() {
+       
+  
+    })
+    .catch(function (error) {
+     // handle error
+      console.log(error);
+    })
+    .then(function () {
+     // selectPropertyList();
+      
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+    // var todo = {
+    //   text: $newItemInput.val().trim(),
+    //   // complete: false
+    // };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
+    // $.post("/api/todos", todo, getTodos);
+    // $newItemInput.val("");
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+  //function selectPropertyList(){
+    // $.get("/api/homeList", function(data) {
+    //   homeListArray = data;
+    //   console.log("from db"+data);
+    //   //initializeRows();
+    // });
+ // }
+})
