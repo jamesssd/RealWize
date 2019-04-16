@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "password",
-=======
-    "password": "JBAccess1!",
->>>>>>> 737a234f33f430321093e6a8ce4113c0b031af5a
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql"
