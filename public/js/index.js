@@ -1,4 +1,5 @@
 $(document).ready(function() {
+ 
   // console.log("hello");
   //var homeListArray = [];
   // Getting a reference to the input field where user adds a city name
@@ -40,8 +41,10 @@ $(document).ready(function() {
   
        //Getting bedbath
          var bedNumbers = response.data.property[i].building.rooms.bathstotal;
+
         var bathNumbers = response.data.property[i].building.rooms.beds;
-        var bedbath =  bedNumbers+"beds"+bathNumbers+"baths";
+
+        var bedbath =  bedNumbers+" beds || "+bathNumbers+" baths";
         //console.log("address"+v);
         var houseDetails = {
           homeAddress: response.data.property[i].address.oneLine,
@@ -50,8 +53,11 @@ $(document).ready(function() {
           propClass: response.data.property[i].summary.propclass,
           date_listed: response.data.property[i].vintage.pubDate,
           // text: $newItemInput.val().trim(),
-          roomsAmenities: bedbath
+          roomsAmenities: bedbath,
+
         };
+     console.log(houseDetails);
+
     
         // POST route for saving a new todo
         // This function inserts a new todo into our database and then updates the view
@@ -91,3 +97,5 @@ $(document).ready(function() {
     // });
  // }
 })
+//======MODAL CONTROL========//
+

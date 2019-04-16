@@ -24,6 +24,7 @@
         propclass: req.body.propClass,
         date_listed: req.body.date_listed,
         rooms_amenities: req.body.roomsAmenities,
+       
      }).then(function(results) {
         // `results` here would be the newly created row
         //res.redirect("/api/homeList");
