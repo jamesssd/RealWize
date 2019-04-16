@@ -39,9 +39,9 @@ $(document).ready(function() {
     var cityObject = {
       searchCity : cityName
     };
-    $.post("/api/homeListBasedCity/bothell", cityObject,function(){
+    // $.post("/api/homeListBasedCity/bothell", cityObject,function(){
       
-    })
+    // })
 
    
 
