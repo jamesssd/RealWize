@@ -11,12 +11,14 @@ $(document).ready(function() {
   // $(document).on("click", ".todo-item", editTodo);
   // $(document).on("keyup", ".todo-item", finishEdit);
   // $(document).on("blur", ".todo-item", cancelEdit);
-  $(document).on("submit", "#todo-form", getPropertListApi);
+  $(document).on("submit", "#todo-form", getPropertyListApi);
 
- 
+  // document.getElementById("myBtn").addEventListener("click", getPropertyListApi);
   
   // This function makes api call to get api data for city
-  function getPropertListApi(event) {
+  function getPropertyListApi(event) {
+    
+
     console.log("inserting values");
     event.preventDefault();
    //setting header info to send it as the last argument in axios get request
@@ -31,6 +33,17 @@ $(document).ready(function() {
     // Getting the value from city textbox
     var cityName = $cityInput.val().trim();
     $cityInput.val("");
+    console.log("cityName client"+cityName);
+
+    // var cityObject = {
+    //   searchCity : cityName
+    // };
+    // $.post("/api/homeListBasedCity/bothell", cityObject,function(){
+      
+    // })
+
+   
+
      //axios get method to get api data    
     axios.get('https://search.onboard-apis.com/propertyapi/v1.0.0/property/snapshot?cityname='+cityName, config)
     .then(function (response) {
@@ -45,6 +58,7 @@ $(document).ready(function() {
         //console.log("address"+v);
         var houseDetails = {
           homeAddress: response.data.property[i].address.oneLine,
+          cityName: response.data.property[i].address.locality,
           yearBuilt: response.data.property[i].summary.yearbuilt,
           lotSize: response.data.property[i].lot.lotSize1,
           propClass: response.data.property[i].summary.propclass,
@@ -60,19 +74,28 @@ $(document).ready(function() {
        })
      }
      
-          // This function grabs propertlists from the database and updates the view
-       // function getHomeList() {
+
+    $.get("/api/homeListBasedCity/"+ cityName, function(data){
+      console.log(data)
+      // for (let i = 0; i < data.length; i++) {
+      //   $('#results').append(data[i].address + '<br>')
+        
+        
+      // }
+    })
+    //       // This function grabs propertlists from the database and updates the view
+    //    // function getHomeList() {
        
   
-    })
-    .catch(function (error) {
-     // handle error
-      console.log(error);
-    })
-    .then(function () {
-     // selectPropertyList();
+     })
+    // .catch(function (error) {
+    //  // handle error
+    //   console.log(error);
+    // })
+    // .then(function () {
+    //  // selectPropertyList();
       
-    });
+    // });
 
     // var todo = {
     //   text: $newItemInput.val().trim(),
