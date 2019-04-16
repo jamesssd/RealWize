@@ -8,7 +8,7 @@
   },
   "test": {
     "username": "root",
-    "password": "JBAccess1!",
+    "password": "password",
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql",
@@ -22,14 +22,14 @@
 
   "development": {
     "username": "root",
-    "password": "JBAccess1!",
+    "password": "password",
     "database": "Sequelize_Passport",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "JBAccess1!",
+    "password": "password",
     "database": "Sequelize_Passport",
     "host": "localhost",
     "dialect": "mysql",
