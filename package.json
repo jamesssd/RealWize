@@ -1,5 +1,5 @@
 {
-  "name": "handlebars-boilerplate",
+  "name": "passport",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -12,10 +12,18 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.16.1",
+    "handlebars": "^4.1.2",
     "mysql2": "^1.6.4",
+    "n": "^3.0.2",
+    "nodemon": "^1.18.11",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.43.1"
   },
   "devDependencies": {
