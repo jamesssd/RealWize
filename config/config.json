@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< Updated upstream
-    "password": "password",
-=======
     "password": "JBAccess1!",
->>>>>>> Stashed changes
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql"
@@ -14,27 +10,6 @@
     "username": "root",
     "password": "JBAccess1!",
     "database": "RealWize_DB",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  },
-
-
-  "development": {
-    "username": "root",
-    "password": "JBAccess1!",
-    "database": "Sequelize_Passport",
-    "host": "localhost",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": "JBAccess1!",
-    "database": "Sequelize_Passport",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
@@ -43,4 +18,5 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
+
 }

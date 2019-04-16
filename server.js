@@ -28,12 +28,6 @@ var express = require("express");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-//Passport requirements
-var passport   = require('passport')
-var session    = require('express-session')
-var bodyParser = require('body-parser')
-var env = require('dotenv').load();
-var exphbs = require('express-handlebars')
 
 //Passport requirements
 var passport   = require('passport')
@@ -93,7 +87,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/apiRoutes.js")(app);
-var authRoute = require('./routes/auth.js')(app);
+require('./routes/auth.js')(app,passport);
 
  //var syncOptions = { force: false };
 
