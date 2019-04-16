@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< Updated upstream
     "password": "password",
+=======
+    "password": "JBAccess1!",
+>>>>>>> Stashed changes
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql"

@@ -35,6 +35,13 @@ var bodyParser = require('body-parser')
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars')
 
+//Passport requirements
+var passport   = require('passport')
+var session    = require('express-session')
+var bodyParser = require('body-parser')
+var env = require('dotenv').load();
+var exphbs = require('express-handlebars')
+
 // Requiring our models for syncing
 var db = require("./models");
 
