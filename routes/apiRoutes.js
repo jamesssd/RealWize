@@ -1,15 +1,19 @@
  var db = require("../models");
+ const url = require('url');    
+
 
  module.exports = function(app) {
-//   // Get all examples
+ //   // Get all examples
    app.get("/", function(req, res) {
-    //db.Example.findAll({}).then(function(dbExamples) {
+    // db.Housing.findAll({}).then(function(dbExamples) {
+    console.log("REQ.QUERY: ", req.query.list)
+    // console.log("Findall DATA: ", dbExamples)
         var hbsObject = {
             // value: "hello"
-           
+            //list: dbExamples
           };
         res.render("index", hbsObject);
-    //});
+    // });
   });
 
 
@@ -19,6 +23,7 @@
     // insert into our table. In this case we just pass in object houseDetails
     db.Housing.create({
         address: req.body.homeAddress,
+        city: req.body.cityName,
         Year_built: req.body.yearBuilt,
         lot_size: req.body.lotSize,
         propclass: req.body.propClass,
@@ -27,8 +32,7 @@
        
      }).then(function(results) {
         // `results` here would be the newly created row
-        //res.redirect("/api/homeList");
-        //res.end();
+        
         res.json(results);
       }).catch(err => {
         
@@ -36,22 +40,48 @@
    });
 
   // GET route for getting all of the homeList
-  app.get("/api/homeList", function(req, res) {
+  app.get("/api/homeListBasedCity/:cityName", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Housing.findAll({}).then(function(dbProperty) {
-        
+    // console.log("i am executing"+cityName);
+    db.Housing.findAll({
+      where: {
+        city: req.params.cityName
+        // city: "bothell"
+        // status: 'active'
+      }
+  }).then(function(dbProperty) {
+    console.log("i am exec"+req.params.cityName);
+    // var cityPassingTohandleBar = [
+    //   { cityInHandlebarname: "seattle"}
+    // ]
+    // console.log("testing city"+cityPassingTohandleBar);
       // We have access to the homeList as an argument inside of the callback function
       var propertyListObject = {
+        // citykey: "seattle",
+        // citykey: "cityPassingTohandleBar",
         list: dbProperty
+         
        
       };
+      // var citytest = {
+      // citykey: "seattle"
+      // }
       
-      console.log("from db server side"+dbProperty);
-      //res.json(dbProperty);
-      res.render("index", propertyListObject);
+       console.log("from db server side",dbProperty);
+
+        // let cleanArray = [];
+        // for (let i = 0; i < dbProperty.length; i++) {
+        //   cleanArray.push(dbProperty[i].dataValues)
+          
+        // }
+
+        // console.log("CLEAN ARRAY: ", cleanArray)
+        // res.json(dbProperty);
+        // res.render("index",citytest);
+         res.render("index",propertyListObject );
+        
     });
-  });
+    // {list: cleanArray}
+  })
 
-}
-
-
+ }

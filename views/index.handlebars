@@ -23,6 +23,76 @@
 
 
 
+<div class="jumbotron">
+      <h1 class="text-center">Real Wize</h1>
+</div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <form id="todo-form">
+              <div class="container">
+                <div class="row">
+                  <div class="col-10">
+                    <input class="search-city form-control" placeholder="Enter City Name" type="text" />
+                 
+                  </div>
+                  
+                  <div class="col-2">
+                    {{!-- <button type="submit" class="btn btn-danger text-white">Search</button> --}}
+                   {{!-- <a class="btn btn-danger text-white" type = "submit">Search</a> --}}
+                   <a class="btn btn-danger " id = "myBtn" href="/api/homeListBasedCity/seattle" placeholder="Enter City Name">Search</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+        <br>
+
+      {{!-- <div id='results'>
+
+      </div> --}}
+           {{#each list}}
+      {{!-- <h1>Uno mas</h1> --}}
+      
+      <div class="row">
+        {{!-- {{this.address}} --}}
+        <div class="col-sm-12 col-sm-offset-2">
+          <div class="card mb-3 border border-primary">
+          <div class="row no-gutters">
+         <div class="col-md-4">
+           {{!-- making each card a hyperlink --}}
+           <a href = "#">
+         {{!-- <img src="home.jpg" class="card-img" alt="Home-image" > --}}
+         <img src="/images/home.jpg" class="card-img" alt="Home-image" >
+        </a>
+        </div>
+        <div class="col-md-8">
+       <div class="card-body">
+         {{!-- making each card a hyperlink --}}
+         <a href = "#">
+        <h5 class="card-title">Price</h5>
+        
+        <p class="card-text">{{rooms_amenities}}</p>
+        <p class="card-text">{{rooms_amenities}} | {{lot_size}}</p>
+        <p class="card-text">{{address}}</p>
+        <p class="card-text"><small class="text-muted">Listing provided by ATTOM</small></p>
+      </a>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+
+</div>
+
+</div>
+{{/each}}
+
+
 
 <div class="row">
   {{#each list}}
