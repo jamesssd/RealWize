@@ -18,26 +18,25 @@
 
 
   // POST route for saving a new todo
-  app.post("/api/homeList", function(req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just pass in object houseDetails
-    db.Housing.create({
-        address: req.body.homeAddress,
-        city: req.body.cityName,
-        Year_built: req.body.yearBuilt,
-        lot_size: req.body.lotSize,
-        propclass: req.body.propClass,
-        date_listed: req.body.date_listed,
-        rooms_amenities: req.body.roomsAmenities,
-       
-     }).then(function(results) {
-        // `results` here would be the newly created row
+  // app.post("/api/homeList", function(req, res) {
+  //   // create takes an argument of an object describing the item we want to
+  //   // insert into our table. In this case we just pass in object houseDetails
+  //   db.Housing.create({
+  //       address: req.body.homeAddress,
+  //       city: req.body.cityName,
+  //       Year_built: req.body.yearBuilt,
+  //       lot_size: req.body.lotSize,
+  //       propclass: req.body.propClass,
+  //       date_listed: req.body.date_listed,
+  //       rooms_amenities: req.body.roomsAmenities,
+  //    }).then(function(results) {
+  //       // `results` here would be the newly created row
         
-        res.json(results);
-      }).catch(err => {
+  //       res.json(results);
+  //     }).catch(err => {
         
-      })
-   });
+  //     })
+  //  });
 
   // GET route for getting all of the homeList
   app.get("/api/homeListBasedCity/:cityName", function(req, res) {
@@ -57,7 +56,7 @@
     // console.log("testing city"+cityPassingTohandleBar);
       // We have access to the homeList as an argument inside of the callback function
       var propertyListObject = {
-        // citykey: "seattle",
+        citykey: req.params.cityName,
         // citykey: "cityPassingTohandleBar",
         list: dbProperty
          
@@ -67,7 +66,7 @@
       // citykey: "seattle"
       // }
       
-       console.log("from db server side",dbProperty);
+      //  console.log("from db server side",dbProperty);
 
         // let cleanArray = [];
         // for (let i = 0; i < dbProperty.length; i++) {

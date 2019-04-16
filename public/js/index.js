@@ -45,55 +45,51 @@ $(document).ready(function() {
 
    
 
-     //axios get method to get api data    
-    axios.get('https://search.onboard-apis.com/propertyapi/v1.0.0/property/snapshot?cityname='+cityName, config)
-    .then(function (response) {
-     // handle success
-      console.log(response);
-      for (i in response.data.property) {
+    //  axios get method to get api snapshot data    
+    // axios.get('https://search.onboard-apis.com/propertyapi/v1.0.0/property/snapshot?cityname='+cityName, config)
+    // .then(function (response) {
+    //  // handle success
+    //   console.log(response);
+    //   for (i in response.data.property) {
   
-       //Getting bedbath
-         var bedNumbers = response.data.property[i].building.rooms.bathstotal;
-
-        var bathNumbers = response.data.property[i].building.rooms.beds;
-
-        var bedbath =  bedNumbers+" beds || "+bathNumbers+" baths";
-        //console.log("address"+v);
-        var houseDetails = {
-          homeAddress: response.data.property[i].address.oneLine,
-          cityName: response.data.property[i].address.locality,
-          yearBuilt: response.data.property[i].summary.yearbuilt,
-          lotSize: response.data.property[i].lot.lotSize1,
-          propClass: response.data.property[i].summary.propclass,
-          date_listed: response.data.property[i].vintage.pubDate,
-          // text: $newItemInput.val().trim(),
-          roomsAmenities: bedbath,
-
-        };
-     console.log(houseDetails);
-
+    //    //Getting bedbath
+    //      var bedNumbers = response.data.property[i].building.rooms.bathstotal;
+    //     var bathNumbers = response.data.property[i].building.rooms.beds;
+    //     var bedbath =  bedNumbers+"beds"+bathNumbers+"baths";
+    //     //console.log("address"+v);
+    //     var houseDetails = {
+    //       homeAddress: response.data.property[i].address.oneLine,
+    //       cityName: response.data.property[i].address.locality,
+    //       //  propertyID: response.data.property[i].identifier.obPropId
+    //       yearBuilt: response.data.property[i].summary.yearbuilt,
+    //       lotSize: response.data.property[i].lot.lotSize1,
+    //       propClass: response.data.property[i].summary.propclass,
+    //       date_listed: response.data.property[i].vintage.pubDate,
+    //       // text: $newItemInput.val().trim(),
+    //       roomsAmenities: bedbath
+    //     };
     
         // POST route for saving a new todo
         // This function inserts a new todo into our database and then updates the view
-        $.post("/api/homeList", houseDetails,function(){
+      //   $.post("/api/homeList", houseDetails,function(){
       
-       })
-     }
+      //  })
+    //  }
      
-
-    $.get("/api/homeListBasedCity/"+ cityName, function(data){
-      console.log(data)
-      // for (let i = 0; i < data.length; i++) {
-      //   $('#results').append(data[i].address + '<br>')
+    window.location='/api/homeListBasedCity/' + cityName
+    // $.get("/api/homeListBasedCity/"+ cityName, function(data){
+    //   console.log(data)
+    //   // for (let i = 0; i < data.length; i++) {
+    //   //   $('#results').append(data[i].address + '<br>')
         
         
-      // }
-    })
+    //   // }
+    // })
     //       // This function grabs propertlists from the database and updates the view
     //    // function getHomeList() {
        
   
-     })
+    //  })
     // .catch(function (error) {
     //  // handle error
     //   console.log(error);
