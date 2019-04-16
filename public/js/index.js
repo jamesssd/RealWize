@@ -1,4 +1,5 @@
 $(document).ready(function() {
+ 
   // console.log("hello");
   //var homeListArray = [];
   // Getting a reference to the input field where user adds a city name
@@ -35,9 +36,9 @@ $(document).ready(function() {
     $cityInput.val("");
     console.log("cityName client"+cityName);
 
-    // var cityObject = {
-    //   searchCity : cityName
-    // };
+    var cityObject = {
+      searchCity : cityName
+    };
     // $.post("/api/homeListBasedCity/bothell", cityObject,function(){
       
     // })
@@ -115,3 +116,5 @@ $(document).ready(function() {
     // });
  // }
 })
+//======MODAL CONTROL========//
+

@@ -1,0 +1,55 @@
+<div class="row">
+  {{#each list}}
+
+  {{!-- making each card a hyperlink --}}
+  <div class="container">
+    <img class="images"
+      src="https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1" alt="">
+    <div class="middle">
+      {{!-- MODAL BUTTON --}}
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{id}}"> Price Listing
+        $450,000.00</button>
+
+      <p class="card-text"><small class="text-muted">Listing provided by ATTOM</small></p>
+
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- THIS IS THE MODEL CONTAINER--}}
+  <div class="modal fade" id="exampleModal{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{address}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {{!-- THIS IS WHERE INFO FOR MODAL WILL GO --}}
+        <div class="modal-body">
+          <p class="card-text">
+            <img class="images" src="https://cdnimages.familyhomeplans.com/plans/75977/75977-b1200.jpg" alt="">
+            <p>PRICE: ...</p>
+            {{rooms_amenities}}
+          </p>
+          <p>Lot Size: {{lot_size}}</p>
+          <p>Square Footage: ...</p>
+          <p>Year Built: ...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
