@@ -14,12 +14,6 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      // city: {
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     len: [1]
-      //   }
-      // },
 
       Year_built: {
         type: DataTypes.INTEGER,
