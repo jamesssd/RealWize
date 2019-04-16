@@ -36,12 +36,12 @@ $(document).ready(function() {
     $cityInput.val("");
     console.log("cityName client"+cityName);
 
-    // var cityObject = {
-    //   searchCity : cityName
-    // };
-    // $.post("/api/homeListBasedCity/bothell", cityObject,function(){
+    var cityObject = {
+      searchCity : cityName
+    };
+    $.post("/api/homeListBasedCity/bothell", cityObject,function(){
       
-    // })
+    })
 
    
 

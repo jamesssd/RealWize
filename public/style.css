@@ -143,3 +143,9 @@ position: relative;
     position: absolute;
     z-index: -1;   
   }
+  .modal-content{
+    background: rgba(0, 0, 0, 0.322);
+    border-radius: 0px;
+    border: 10px solid rgba(245, 245, 245, 0.295);
+    width: 130%;
+  }
