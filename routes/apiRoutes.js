@@ -4,6 +4,11 @@
 
 module.exports = function(app) {
  //   // Get all examples
+ app.get("/", function(req, res) {
+
+      res.render("index");
+  // });
+});
    app.get("/", function(req, res) {
      // db.Housing.findAll({}).then(function(dbExamples) {
      console.log("REQ.QUERY: ", req.query.list)
@@ -12,8 +17,10 @@ module.exports = function(app) {
             // value: "hello"
             //list: dbExamples
           };
-        res.render("index", hbsObject);
-     });//End of app.get(/)
+        res.render("search", hbsObject);
+    // });
+  });
+
 
  //********* We need following commented codes for inserting values from api to database*************
   // POST route for saving a new todo
@@ -89,7 +96,7 @@ module.exports = function(app) {
         // console.log("CLEAN ARRAY: ", cleanArray)
         // res.json(dbProperty);
         // res.render("index",citytest);
-      res.render("index",propertyListObject );
+         res.render("search",propertyListObject );
         
     });//end of db.Housing.findAll.then
     // {list: cleanArray}
