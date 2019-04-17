@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Password",
-    "database": "RealWize_DB",
+    "database": "realwize_db",
     "host": "localhost",
     "dialect": "mysql"
   },
