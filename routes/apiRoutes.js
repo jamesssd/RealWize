@@ -112,16 +112,6 @@ module.exports = function(app) {
       
       //  console.log("from db server side",dbProperty);
 
-<<<<<<< HEAD
-      // let cleanArray = [];
-      // for (let i = 0; i < dbProperty.length; i++) {
-      //   cleanArray.push(dbProperty[i].dataValues)
-      // }
-      // console.log("CLEAN ARRAY: ", cleanArray)
-      // res.json(dbProperty);
-      // res.render("index",citytest);
-      res.render("index",propertyListObject );
-=======
         // let cleanArray = [];
         // for (let i = 0; i < dbProperty.length; i++) {
         //   cleanArray.push(dbProperty[i].dataValues)
@@ -130,7 +120,6 @@ module.exports = function(app) {
         // res.json(dbProperty);
         // res.render("index",citytest);
          res.render("search",propertyListObject );
->>>>>>> 5816a62f7a4ea694b1d950d1957c10c4563cd55a
         
     });//end of db.Housing.findAll.then
     // {list: cleanArray}

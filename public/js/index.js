@@ -201,9 +201,6 @@ $(document).ready(function() {
     // window.location="/api/homeListBasedCity/" + cityName;
   }//end of function getPropertyListApi
 
-<<<<<<< HEAD
-});//end of document.ready function
-=======
 })//end of document.ready function
 
 //===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
@@ -215,4 +212,3 @@ $("#signInBtn1").click(function(){
   
   $("#signup").slideToggle(1000, "swing");
 });
->>>>>>> 5816a62f7a4ea694b1d950d1957c10c4563cd55a
