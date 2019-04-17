@@ -164,3 +164,13 @@ $(document).ready(function() {
   }//end of function getPropertyListApi
 
 })//end of document.ready function
+
+//===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
+$("#signInBtn").click(function(){
+  
+  $("#signup").slideToggle(1000, "swing");
+});
+$("#signInBtn1").click(function(){
+  
+  $("#signup").slideToggle(1000, "swing");
+});

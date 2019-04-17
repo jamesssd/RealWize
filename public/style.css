@@ -122,11 +122,10 @@ border: 3px solid blue;
 
  }
  .jumbotron{
-   
+   background: rgba(240, 236, 6, 0.568);
    padding: 20px;
    margin:0;
    border-radius: 0px;
-   background-image: url(https://davidbalyeat.com/wp-content/uploads/manhattan-skyline-midtown-new-york-city-panoramic-black-and-white-high-defintion-hd-professional-landscape-photography.jpg);
    background-repeat: no-repeat;
    background-size: 100%;
 display: block;
@@ -180,8 +179,66 @@ position: relative;
     align-items: center;
     font-size: 100px;
     display: block;
-    background: black;
+ 
+    /* background: black; */
   }
   #todo-form{
     display: block;
+    width: 100%;
+  }
+  #signInBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: 2px solid rgb(0,96,182);
+    color: rgb(0,96,182);
+    border-radius: 5px;
+    font-size: 15px; 
+    z-index: 1;
+
+  }
+  #signInBtn:hover{
+    background: rgb(0,96,182);
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+  }
+  #signup{
+    
+    display: block;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 40%;
+  margin: auto;
+    background: rgba(218, 17, 17, 0.596);
+    padding: 70px;
+    
+  }
+  #signInTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #signInInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+   
+  }
+  input.inputBox{
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center; 
+  }
+  #signInBtn1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; 
+     
   }

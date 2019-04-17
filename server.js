@@ -29,15 +29,9 @@ var app = express();
 var PORT = process.env.PORT || 4100;
 
 
-<<<<<<< HEAD
-// Passport requirements
-var passport   = require('passport')
-var session    = require('express-session')
-=======
 //Passport requirements
 // var passport   = require('passport')
 // var session    = require('express-session')
->>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
 var bodyParser = require('body-parser')
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars')
