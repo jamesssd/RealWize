@@ -4,7 +4,8 @@
     "password": "password",
     "database": "RealWize_DB",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",

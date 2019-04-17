@@ -19,9 +19,9 @@ var express = require("express");
 
 
 //require passport
-// var passport = require("passport");
-// var LocalStrategy = require("passport-local").Strategy;
-// var FacebookStrategy = require("passport-facebook").Strategy;
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require("passport-facebook").Strategy;
 
 // Sets up the Express App
 // =============================================================
@@ -29,12 +29,12 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 
-//Passport requirements
-// var passport   = require('passport')
-// var session    = require('express-session')
-// var bodyParser = require('body-parser')
-// var env = require('dotenv').load();
-// var exphbs = require('express-handlebars')
+// Passport requirements
+var passport   = require('passport')
+var session    = require('express-session')
+var bodyParser = require('body-parser')
+var env = require('dotenv').load();
+var exphbs = require('express-handlebars')
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -45,33 +45,33 @@ app.use(express.json());
 
 
 //For BodyParser
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // For Passport
  
-// app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
  
-// app.use(passport.initialize());
+app.use(passport.initialize());
  
-// app.use(passport.session()); // persistent login sessions
+app.use(passport.session()); // persistent login sessions
 
 //===================================================//
 //Test Passport Database
 
 //Models
-// var models = require("./models");
+var models = require("./models");
  
 //Sync Database
-// models.sequelize.sync().then(function() {
+models.sequelize.sync().then(function() {
  
     // console.log('Nice! Database looks fine')
  
-// }).catch(function(err) {
+}).catch(function(err) {
  
     // console.log(err, "Something went wrong with the Database Update!")
  
-// });
+});
 
 //==========END PASSPORT TEST=============//
 
@@ -87,15 +87,15 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/apiRoutes.js")(app);
-require('./routes/auth.js')(app,passport);
+require("./routes/auth.js")(app,passport);
 
- //var syncOptions = { force: false };
+ var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-// if (process.env.NODE_ENV === "test") {
-//   syncOptions.force = true;
-// }
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

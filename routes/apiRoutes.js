@@ -4,6 +4,11 @@
 
  module.exports = function(app) {
  //   // Get all examples
+ app.get("/", function(req, res) {
+
+      res.render("index");
+  // });
+});
    app.get("/", function(req, res) {
     // db.Housing.findAll({}).then(function(dbExamples) {
     console.log("REQ.QUERY: ", req.query.list)
@@ -12,7 +17,7 @@
             // value: "hello"
             //list: dbExamples
           };
-        res.render("index", hbsObject);
+        res.render("search", hbsObject);
     // });
   });
 
@@ -77,7 +82,7 @@
         // console.log("CLEAN ARRAY: ", cleanArray)
         // res.json(dbProperty);
         // res.render("index",citytest);
-         res.render("index",propertyListObject );
+         res.render("search",propertyListObject );
         
     });
     // {list: cleanArray}

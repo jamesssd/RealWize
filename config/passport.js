@@ -4,9 +4,7 @@ var LocalStrategy = require ("passport-local").Strategy
 
 
 passport.use('local-signin', new LocalStrategy(
- 
     {
- 
         // by default, local strategy uses username and password, we will override with email
  
         usernameField: 'email',
@@ -14,7 +12,6 @@ passport.use('local-signin', new LocalStrategy(
         passwordField: 'password',
  
         passReqToCallback: true // allows us to pass back the entire request to the callback
- 
     },
  
  
@@ -68,7 +65,7 @@ passport.use('local-signin', new LocalStrategy(
  
     }
  
-));
+))
 
 module.exports = passport;
 
