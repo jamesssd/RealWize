@@ -198,7 +198,7 @@ $(document).ready(function() {
     //********* just comment below line of code to trigger api call and insert api data into db and 
     //  uncomment it once u have enough records in your table  ***************************** 
 
-    // window.location="/api/homeListBasedCity/" + cityName;
+    window.location="/api/homeListBasedCity/" + cityName;
   }//end of function getPropertyListApi
 
 })//end of document.ready function
