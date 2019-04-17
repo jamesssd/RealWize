@@ -19,9 +19,9 @@ var express = require("express");
 
 
 //require passport
-//var passport = require("passport");
-// var LocalStrategy = require("passport-local").Strategy;
-// var FacebookStrategy = require("passport-facebook").Strategy;
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require("passport-facebook").Strategy;
 
 // Sets up the Express App
 // =============================================================
@@ -89,9 +89,9 @@ require("./config/passport.js")(passport, db.user);
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-// if (process.env.NODE_ENV === "test") {
-//   syncOptions.force = true;
-// }
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

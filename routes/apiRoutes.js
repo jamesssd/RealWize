@@ -3,6 +3,7 @@ const url = require("url");
 
 
 module.exports = function(app) {
+<<<<<<< HEAD
   //   // Get all examples
   app.get("/", function(req, res) {
       // if req.user is true, that means that the user is logged in
@@ -22,6 +23,26 @@ module.exports = function(app) {
     // };
     
   });//End of app.get(/)
+=======
+ //   // Get all examples
+ app.get("/", function(req, res) {
+
+      res.render("index");
+  // });
+});
+   app.get("/", function(req, res) {
+     // db.Housing.findAll({}).then(function(dbExamples) {
+     console.log("REQ.QUERY: ", req.query.list)
+     // console.log("Findall DATA: ", dbExamples)
+        var hbsObject = {
+            // value: "hello"
+            //list: dbExamples
+          };
+        res.render("search", hbsObject);
+    // });
+  });
+
+>>>>>>> 5816a62f7a4ea694b1d950d1957c10c4563cd55a
 
   //********* We need following commented codes for inserting values from api to database*************
   // POST route for saving a new todo
@@ -91,6 +112,7 @@ module.exports = function(app) {
       
       //  console.log("from db server side",dbProperty);
 
+<<<<<<< HEAD
       // let cleanArray = [];
       // for (let i = 0; i < dbProperty.length; i++) {
       //   cleanArray.push(dbProperty[i].dataValues)
@@ -99,6 +121,16 @@ module.exports = function(app) {
       // res.json(dbProperty);
       // res.render("index",citytest);
       res.render("index",propertyListObject );
+=======
+        // let cleanArray = [];
+        // for (let i = 0; i < dbProperty.length; i++) {
+        //   cleanArray.push(dbProperty[i].dataValues)
+        // }
+        // console.log("CLEAN ARRAY: ", cleanArray)
+        // res.json(dbProperty);
+        // res.render("index",citytest);
+         res.render("search",propertyListObject );
+>>>>>>> 5816a62f7a4ea694b1d950d1957c10c4563cd55a
         
     });//end of db.Housing.findAll.then
     // {list: cleanArray}

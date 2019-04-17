@@ -1,14 +1,15 @@
 {
   "development": {
     "username": "root",
-    "password": "Password",
-    "database": "realwize_db",
+    "password": "password",
+    "database": "RealWize_DB",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
-    "password": "JBAccess1!",
+    "password": "password",
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql",
