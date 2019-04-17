@@ -32,9 +32,9 @@ var PORT = process.env.PORT || 4100;
 //Passport requirements
 // var passport   = require('passport')
 // var session    = require('express-session')
-var bodyParser = require('body-parser')
-var env = require('dotenv').load();
-var exphbs = require('express-handlebars')
+var bodyParser = require("body-parser");
+var env = require("dotenv").load();
+var exphbs = require("express-handlebars");
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -89,7 +89,7 @@ app.use(express.static("public"));
 require("./routes/apiRoutes.js")(app);
 // require('./routes/auth.js')(app,passport);
 
- //var syncOptions = { force: false };
+//var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
