@@ -21,8 +21,6 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-<<<<<<< HEAD
-=======
       lotDb: {
         type: DataTypes.INTEGER,
         validate: {
@@ -65,7 +63,6 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
->>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
 
 
       bathDb: {

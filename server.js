@@ -71,19 +71,11 @@ app.use(bodyParser.json());
 //Sync Database
 // models.sequelize.sync().then(function() {
  
-<<<<<<< HEAD
-    // console.log('Nice! Database looks fine')
-=======
 //     console.log('Nice! Database looks fine')
->>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
  
 // }).catch(function(err) {
  
-<<<<<<< HEAD
-    // console.log(err, "Something went wrong with the Database Update!")
-=======
 //     console.log(err, "Something went wrong with the Database Update!")
->>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
  
 // });
 
@@ -101,11 +93,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/apiRoutes.js")(app);
-<<<<<<< HEAD
-require("./routes/auth.js")(app,passport);
-=======
 // require('./routes/auth.js')(app,passport);
->>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
 
  var syncOptions = { force: false };
 

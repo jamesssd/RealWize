@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "password",
     "database": "RealWize_DB",
-=======
-    "password": "Password",
-    "database": "realwize_db",
->>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
     "host": "localhost",
     "dialect": "mysql",
     "operatorsAliases": false
