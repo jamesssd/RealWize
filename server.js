@@ -26,12 +26,18 @@ var FacebookStrategy = require("passport-facebook").Strategy;
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 4100;
 
 
+<<<<<<< HEAD
 // Passport requirements
 var passport   = require('passport')
 var session    = require('express-session')
+=======
+//Passport requirements
+// var passport   = require('passport')
+// var session    = require('express-session')
+>>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
 var bodyParser = require('body-parser')
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars')
@@ -50,28 +56,36 @@ app.use(bodyParser.json());
 
 // For Passport
  
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+// app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
  
-app.use(passport.initialize());
+// app.use(passport.initialize());
  
-app.use(passport.session()); // persistent login sessions
+// app.use(passport.session()); // persistent login sessions
 
 //===================================================//
 //Test Passport Database
 
 //Models
-var models = require("./models");
+// var models = require("./models");
  
 //Sync Database
-models.sequelize.sync().then(function() {
+// models.sequelize.sync().then(function() {
  
+<<<<<<< HEAD
     // console.log('Nice! Database looks fine')
+=======
+//     console.log('Nice! Database looks fine')
+>>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
  
-}).catch(function(err) {
+// }).catch(function(err) {
  
+<<<<<<< HEAD
     // console.log(err, "Something went wrong with the Database Update!")
+=======
+//     console.log(err, "Something went wrong with the Database Update!")
+>>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
  
-});
+// });
 
 //==========END PASSPORT TEST=============//
 
@@ -87,7 +101,11 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/apiRoutes.js")(app);
+<<<<<<< HEAD
 require("./routes/auth.js")(app,passport);
+=======
+// require('./routes/auth.js')(app,passport);
+>>>>>>> 8c42b575cbd573d8fb8249ab6bfd975ffc0c6c3f
 
  var syncOptions = { force: false };
 
