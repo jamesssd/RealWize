@@ -1,38 +1,40 @@
- var db = require("../models");
- const url = require('url');    
+var db = require("../models");
+const url = require("url");    
 
 
 module.exports = function(app) {
- //   // Get all examples
- app.get("/", function(req, res) {
-
-      res.render("index");
-  // });
-});
-   app.get("/", function(req, res) {
-     // db.Housing.findAll({}).then(function(dbExamples) {
-     console.log("REQ.QUERY: ", req.query.list)
-     // console.log("Findall DATA: ", dbExamples)
+  //   // Get all examples
+  app.get("/", function(req, res) {
+      // if req.user is true, that means that the user is logged in
+      if(req.user){
+        console.log("REQ.USER ", req.user);
         var hbsObject = {
-            // value: "hello"
-            //list: dbExamples
-          };
-        res.render("search", hbsObject);
-    // });
-  });
+          user: req.user
+        };
+        res.render("index", hbsObject);
+      }else{
+        res.render("index");
+      }
+    // console.log("Findall DATA: ", dbExamples)
+    // var hbsObject = {
+    //   user: "hello",
+    //   list: dbExamples
+    // };
+    
+  });//End of app.get(/)
 
-
- //********* We need following commented codes for inserting values from api to database*************
+  //********* We need following commented codes for inserting values from api to database*************
   // POST route for saving a new todo
   app.post("/api/homeList", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just pass in object houseDetails
-   console.log("inserting values");
-  //  console.log("going into db",)
+    console.log("inserting values");
+    //  console.log("going into db",)
     db.Housing.create({
       // propertyIdDb: req.body.homePropId,
       addressDb: req.body.address,
       cityDb: req.body.citykey,
+      priceDb: req.body.priceKey,
       lotDb: req.body.lotkey,
       propertyDb: req.body.propertyClasskey,
       propertySubtypeDb: req.body.propertySubtypekey,
@@ -58,18 +60,18 @@ module.exports = function(app) {
       school3DistanceDb: req.body.school3Distancekey,
       listedDateDB: req.body.listedDatekey
 
-        // rooms_amenities: req.body.roomsAmenities,
-     }).then(function(results) {
-        // `results` here would be the newly created row
+      // rooms_amenities: req.body.roomsAmenities,
+    }).then(function(results) {
+      // `results` here would be the newly created row
         
-        res.json(results);
-      }).catch(err => {
-        throw err
-      })//end of catch
-   });//end of post /api/homeList"
-//********* Above code - comment until above line*****************************
+      res.json(results);
+    }).catch(err => {
+      throw err;
+    });//end of catch
+  });//end of post /api/homeList"
+  //********* Above code - comment until above line*****************************
  
-// GET route for getting all of the homeList
+  // GET route for getting all of the homeList
   app.get("/api/homeListBasedCity/:cityName", function(req, res) {
     // findAll returns all entries for a table when used with no options
     // console.log("i am executing"+cityName);
@@ -100,6 +102,6 @@ module.exports = function(app) {
         
     });//end of db.Housing.findAll.then
     // {list: cleanArray}
-  })//end of app.get(/api/homeListBasedCity/:cityName")
+  });//end of app.get(/api/homeListBasedCity/:cityName")
 
- }//end of module.exports
+};//end of module.exports
