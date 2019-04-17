@@ -45,7 +45,7 @@ $(document).ready(function() {
             console.log("inside i");
             return i;
       
-          }// base case
+          }// base case - exiting out of recursion
           else {
 
             var propertyID = response.data.property[i].identifier.obPropId;
@@ -56,8 +56,14 @@ $(document).ready(function() {
             axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/property/detailwithschools?id="+propertyID, config)
               .then(function (responseDetails) {
                 console.log("inner axios");
+                console.log("inner axios value of propertyID=",propertyID);
                 // handle success
                 console.log(responseDetails);
+
+                //map info
+                var longitudevalue= responseDetails.data.property[0].location.longitude; 
+                var latitudeValue = responseDetails.data.property[0].location.latitude; 
+                console.log("map values longitude = "+longitudevalue+"latitude = "+latitudeValue);
              
                 var homeAddress = responseDetails.data.property[0].address.oneLine;
                 var city = responseDetails.data.property[0].address.locality;
@@ -103,10 +109,41 @@ $(document).ready(function() {
                 //Listed Date
                 var listedDate = responseDetails.data.property[0].vintage.pubDate;
 
+
+
+
+                 //  axios get method to get api price data
+            axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/assessmenthistory/detail?id="+propertyID, config)
+            .then(function (responsePrice) {
+              console.log("inner price axios");
+              console.log("inner price axios value of propertyID=",propertyID);
+              // handle success
+              console.log(responsePrice);
+
+              //map info
+              var marketPrice= responsePrice.data.property[0].assessmenthistory[0].market.mktttlvalue; 
+              console.log("market price = "+marketPrice);
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 var houseDetails = {
                   // homePropId: propertyID,
                   address: homeAddress,
                   citykey: city,
+                  priceKey: marketPrice,
                   lotkey: lotSize,
                   propertyClasskey: propertyClass,
                   propertySubtypekey: propertySubtype,
@@ -141,6 +178,7 @@ $(document).ready(function() {
                 });//end of $.post("/api/homeList")
                 i++;
                 return axiosCall(i); // recursive call
+              })//end of axios get price method 
               }) //End of axios get method to get api school data
               .catch(function (error) {
                 //  // handle error
@@ -160,7 +198,7 @@ $(document).ready(function() {
     //********* just comment below line of code to trigger api call and insert api data into db and 
     //  uncomment it once u have enough records in your table  ***************************** 
 
-    window.location="/api/homeListBasedCity/" + cityName;
+    // window.location="/api/homeListBasedCity/" + cityName;
   }//end of function getPropertyListApi
 
 });//end of document.ready function

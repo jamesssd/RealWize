@@ -5,14 +5,22 @@ const url = require("url");
 module.exports = function(app) {
   //   // Get all examples
   app.get("/", function(req, res) {
-    // db.Housing.findAll({}).then(function(dbExamples) {
-    console.log("REQ.QUERY: ", req.query.list);
+      // if req.user is true, that means that the user is logged in
+      if(req.user){
+        console.log("REQ.USER ", req.user);
+        var hbsObject = {
+          user: req.user
+        };
+        res.render("index", hbsObject);
+      }else{
+        res.render("index");
+      }
     // console.log("Findall DATA: ", dbExamples)
-    var hbsObject = {
-      // value: "hello"
-      //list: dbExamples
-    };
-    res.render("index", hbsObject);
+    // var hbsObject = {
+    //   user: "hello",
+    //   list: dbExamples
+    // };
+    
   });//End of app.get(/)
 
   //********* We need following commented codes for inserting values from api to database*************
@@ -26,6 +34,7 @@ module.exports = function(app) {
       // propertyIdDb: req.body.homePropId,
       addressDb: req.body.address,
       cityDb: req.body.citykey,
+      priceDb: req.body.priceKey,
       lotDb: req.body.lotkey,
       propertyDb: req.body.propertyClasskey,
       propertySubtypeDb: req.body.propertySubtypekey,

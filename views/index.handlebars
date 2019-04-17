@@ -14,10 +14,10 @@
         <button type="submit" id="searchBtn" class="btn btn-danger text-white"><img id="searchIcon" src="http://cdn.onlinewebfonts.com/svg/download_61448.png" alt="Search icon"></button>
 
         {{!-- <a class="btn btn-danger text-white" type = "submit">Search</a> --}}
-        {{!-- <div class="col-3">
-        <a class="btn btn-danger text-white " id="searchBtn" href="/api/homeList" placeholder="Enter City Name">
+        <div class="col-3">
+        <a class="btn btn-danger text-white " id="searchBtn" href="/saved/{{user.id}}" placeholder="Enter City Name">
          
-        </a> --}}
+        </a>
       </div>
     </div>
   </div>
@@ -127,7 +127,7 @@
     <div class="middle">
       {{!-- MODAL BUTTON --}}
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{id}}"> Price Listing
-        $450,000.00</button>
+        ${{priceDb}}</button>
 
       <p class="card-text"><small class="text-muted">Listing provided by ATTOM</small></p>
 
@@ -161,7 +161,7 @@
           </p>
           <ul>
             <h5>Summary</h5>
-            <li>Lot Size: {{lotDb}}</li>
+            <li>Lot Size: {{lotDb}} sqft</li>
             <li>Property Type: {{propertyDb}}</li>
              <li>Property SubType: {{propertySubtypeDb}}</li>
              <li>Year Built: {{yearBuiltDb}}</li>

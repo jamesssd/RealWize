@@ -21,6 +21,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    priceDb: {
+      type: DataTypes.INTEGER,
+      validate: {
+        len: [1]
+      }
+    },
+
     lotDb: {
       type: DataTypes.INTEGER,
       validate: {

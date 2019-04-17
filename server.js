@@ -19,7 +19,7 @@ var express = require("express");
 
 
 //require passport
-// var passport = require("passport");
+//var passport = require("passport");
 // var LocalStrategy = require("passport-local").Strategy;
 // var FacebookStrategy = require("passport-facebook").Strategy;
 
@@ -30,8 +30,8 @@ var PORT = process.env.PORT || 4100;
 
 
 //Passport requirements
-// var passport   = require('passport')
-// var session    = require('express-session')
+ var passport   = require('passport')
+var session    = require('express-session')
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
 var exphbs = require("express-handlebars");
@@ -45,11 +45,11 @@ app.use(bodyParser.json());
 
 // For Passport
  
-// app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
  
-// app.use(passport.initialize());
+app.use(passport.initialize());
  
-// app.use(passport.session()); // persistent login sessions
+app.use(passport.session()); // persistent login sessions
 
 //===================================================//
 // //Test Passport Database
@@ -83,7 +83,7 @@ app.use(express.static("public"));
 // =============================================================
 require("./routes/apiRoutes.js")(app);
 require('./routes/auth.js')(app,passport);
-require("./config/passport.js")(passport, db.user)
+require("./config/passport.js")(passport, db.user);
 
 //var syncOptions = { force: false };
 
