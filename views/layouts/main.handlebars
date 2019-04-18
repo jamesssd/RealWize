@@ -8,8 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow|Raleway|Varela+Round" rel="stylesheet">
 
 
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="/js/index.js"></script>
+  
   {{!-- Axios CDN --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -22,7 +21,7 @@
 </head>
 
 <body>
-  <form id="signup" name="signup" method="post" action="/signup">
+  {{!-- <form id="signup" name="signup" method="post" action="/signup">
     <label for="email">Email Address</label>
     <input class="text" name="email" type="email" />
     <label for="firstname">Firstname</label>
@@ -30,7 +29,7 @@
     <label for="password">Password</label>
     <input name="password" type="password" />
     <input class="btn" type="submit" value="Sign Up" />
-  </form>
+  </form> --}}
   <form id="signin" name="signin" method="post" action="/signin">
     <label for="email">Email Address</label>
     <input class="text" name="email" type="email" />
@@ -42,9 +41,56 @@
   <input class="btn" type="submit" value="Logout" />
   </form>
   
+    <button id="signInBtn">Sign-In/Sign-Up</button>
+  <form id="signup" name="signup" method="post" action="/signup" 
+  style="display: none;"
+  >
+    <div>
+      <div id="signInTitle">
+        <labelfor="email">Email Address</label>
+      </div>
+      <div id="signInInput">
+        <input class="text inputBox" name="email" type="email" />
+      </div>
+    </div>
+
+    <div>
+      <div id="signInTitle">
+        <label for="firstname">Firstname</label>
+      </div>
+      <div id="signInInput">
+        <input class="inputBox" name="firstname" type="text" />
+      </div>
+    </div>
+
+    <div>
+      <div id="signInTitle">
+        <label for="lastname">Lastname</label>
+      </div>
+      <div id="signInInput">
+        <input class="inputBox" name="lastname" type="text"/>
+      </div>
+    </div>
+
+    <div>
+      <div id="signInTitle">
+        <label for="password">Password</label>
+      </div>
+      <div id="signInInput">
+        <input class="inputBox" name="password" type="password" />
+      </div>
+    </div>
+
+    <div>
+      <div  id="signInBtn1">
+        <input class="btn" type="submit" value="Sign Up"/>
+      </div>
+    </div>
+  </form>
   {{{body}}}
   {{!-- <h1>Hello</h1> --}}
-
+<script src="https://code.jquery.com/jquery.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>
