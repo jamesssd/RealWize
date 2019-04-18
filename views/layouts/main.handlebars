@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow|Raleway|Varela+Round" rel="stylesheet">
 
-  
+
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="/js/index.js"></script>
   {{!-- Axios CDN --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -23,18 +23,28 @@
 
 <body>
   <form id="signup" name="signup" method="post" action="/signup">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" />
-        <label for="firstname">Firstname</label>
-        <input name="firstname" type="text" />
-        <label for="lastname">Lastname</label>
-        <input name="lastname" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign Up" />
-    </form>
+    <label for="email">Email Address</label>
+    <input class="text" name="email" type="email" />
+    <label for="firstname">Firstname</label>
+    <input name="firstname" type="text" />
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    <input class="btn" type="submit" value="Sign Up" />
+  </form>
+  <form id="signin" name="signin" method="post" action="/signin">
+    <label for="email">Email Address</label>
+    <input class="text" name="email" type="email" />
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    <input class="btn" type="submit" value="Login" />
+  </form>
+  <form id="signout" name="signout" method="get" action="/logout" />
+  <input class="btn" type="submit" value="Logout" />
+  </form>
+  
   {{{body}}}
   {{!-- <h1>Hello</h1> --}}
 
 </body>
+
 </html>

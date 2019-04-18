@@ -7,7 +7,7 @@
    app.get("/", function(req, res) {
     // db.Housing.findAll({}).then(function(dbExamples) {
     console.log("REQ.QUERY: ", req.query.list)
-    // console.log("Findall DATA: ", dbExamples)
+    // console.log("Findall DATA: ", dbExamples
         var hbsObject = {
             // value: "hello"
             //list: dbExamples
