@@ -9,13 +9,30 @@ exports.signup = function(req, res) {
  
 exports.signin = function(req, res) {
  
-  res.render("signin");
+  res.render("main");
  
 };
  
  
-exports.dashboard = function(req, res) {
+exports.index = function(req, res) {
  
-  res.render("dashboard");
+  res.render("index");
  
-};
+}
+
+exports.logout = function(req, res) {
+ 
+    req.session.destroy(function(err) {
+ 
+        res.redirect('index');
+ 
+    });
+}
+
+exports.failed = function (req, res) {
+
+res.redirect('/failed');
+
+    };
+
+
