@@ -189,6 +189,14 @@ $(document).ready(function() {
 
 });//end of document.ready function
 
+//==============================================
+$.get("/username", function (name) {
+
+if (name==="false") return
+$("#name").text(name)
+});
+
+
 //===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
 $("#signInBtn").click(function(){
   
