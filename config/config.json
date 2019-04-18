@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": "JBAccess1!",
+    "password": "password",
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql",
