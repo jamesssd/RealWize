@@ -30,19 +30,21 @@
     <input name="password" type="password" />
     <input class="btn" type="submit" value="Sign Up" />
   </form> --}}
-  <form id="signin" name="signin" method="post" action="/signin">
+  <form id="signin" name="signin" method="post" action="/">
     <label for="email">Email Address</label>
     <input class="text" name="email" type="email" />
     <label for="password">Password</label>
     <input name="password" type="password" />
     <input class="btn" type="submit" value="Login" />
   </form>
-  <form id="signout" name="signout" method="get" action="/logout" />
-  <input class="btn" type="submit" value="Logout" />
+  <form id="signout" name="signout" method="get" action="/" />
+  <input id= "logout-button" class="btn" type="submit" value="Logout" />
   </form>
   
+  <p id="name"></p>
+
     <button id="signInBtn">Sign-In/Sign-Up</button>
-  <form id="signup" name="signup" method="post" action="/signup" 
+  <form id="signup" name="signup" method="post" action="/" 
   style="display: none;"
   >
     <div>
