@@ -5,16 +5,16 @@ const url = require("url");
 module.exports = function(app) {
   //   // Get all examples
   app.get("/", function(req, res) {
-      // if req.user is true, that means that the user is logged in
-      if(req.user){
-        console.log("REQ.USER ", req.user);
-        var hbsObject = {
-          user: req.user
-        };
-        res.render("index", hbsObject);
-      }else{
-        res.render("index");
-      }
+    // if req.user is true, that means that the user is logged in
+    if(req.user){
+      console.log("REQ.USER ", req.user);
+      var hbsObject = {
+        user: req.user
+      };
+      res.render("index", hbsObject);
+    }else{
+      res.render("index");
+    }
     // console.log("Findall DATA: ", dbExamples)
     // var hbsObject = {
     //   user: "hello",
@@ -98,7 +98,7 @@ module.exports = function(app) {
         // console.log("CLEAN ARRAY: ", cleanArray)
         // res.json(dbProperty);
         // res.render("index",citytest);
-         res.render("search",propertyListObject );
+      res.render("search",propertyListObject );
         
     });//end of db.Housing.findAll.then
     // {list: cleanArray}
