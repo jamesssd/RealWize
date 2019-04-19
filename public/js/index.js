@@ -2,17 +2,13 @@ $(document).ready(function () {
   // Getting a reference to the input field where user adds a city name
   var $cityInput = $("input.search-city");
   var i = 0;
-  // Adding event listeners for deleting, editing, and adding 
-  // $(document).on("click", "button.delete", deleteTodo);
-  // $(document).on("click", ".todo-item", editTodo);
-  // $(document).on("keyup", ".todo-item", finishEdit);
-  // $(document).on("blur", ".todo-item", cancelEdit);
-  $(document).on("submit", "#todo-form", getPropertyListApi);
-  // document.getElementById("myBtn").addEventListener("click", getPropertyListApi);
+  // Adding event listeners
+  // $(document).on("submit", "#todo-form", getPropertyListApi);
+   document.getElementById("searchBtn").addEventListener("click", getPropertyListApi);
 
   // This function makes api call to get api data for city
   function getPropertyListApi(event) {
-    //  console.log("inserting values");
+    //  console.log("inside getPropertyListApi")
     event.preventDefault();
     //setting header info to send it as the last argument in axios get request
     var config = {
@@ -158,7 +154,7 @@ $(document).ready(function () {
 
                     };//End of object houseDetails
                     // console.log("api values",city);
-                    console.log("THIS IT THE ADDRESS: " + address);
+                    
                     // POST route for inserting houseDetaild into db
                     $.post("/api/homeList", houseDetails, function () {
 
@@ -258,11 +254,12 @@ $(document).ready(function () {
   };
   var particleCanvas = new ParticleNetwork(canvasDiv, options);
 
-});//end of document.ready function
+
 
 //==============================================
 
-
+$(".favorite").click(function () 
+{
 //if icon clicked and  = red
 if ($(this).hasClass("main")) {
   console.log("INSERTING FAVORITE");
@@ -285,10 +282,11 @@ else {
       // getPosts(postCategorySelect.val());
       iconRed = 0;
     });
-}
-//end  of else if (iconRed === 1)
-// });//End of ("#1").click(function()
+}//end  of else if (iconRed === 1)
+ });//End of ("#1").click(function()
 
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //end of document.ready function
+
+});//end of document.ready function
