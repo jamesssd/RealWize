@@ -27,7 +27,7 @@
       <div id="signUpTitle">
         <labelfor="email">Email Address</label>
       </div>
-      
+
       <div id="signUpInput">
         <input class="text inputBox" name="email" type="email" />
       </div>
@@ -47,7 +47,7 @@
         <label for="lastname">Lastname</label>
       </div>
       <div id="signUpInput">
-        <input class="inputBox" name="lastname" type="text"/>
+        <input class="inputBox" name="lastname" type="text" />
       </div>
     </div>
 
@@ -61,32 +61,56 @@
     </div>
 
     <div>
-      <div  id="signUpBtn1">
-        <input class="btn" type="submit" value="Sign Up"/>
+      <div id="signUpBtn1">
+        <input class="btn" type="submit" value="Sign Up" />
       </div>
     </div>
   </form>
 
-  {{!-- <form id="signin" name="signin" method="post" action="/">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Login" />
-  </form> --}}
-  <form id="signout" name="signout" method="get" action="/" >
-  <br>
-  <input id= "logout-button" class="btn" type="submit" value="Logout" />
-<br>
-<br>
+
+  {{!-- LOGIN FORM --}}
+
+  <form id="signin" name="signin" method="post" action="/" style="display: none;">
+    <div>
+      <div class="loginTitle">
+        <label for="email">Email Address</label>
+      </div>
+      <div class="loginInput">
+        <input class="text" name="email" type="email" />
+      </div>
+    </div>
+
+
+    <div>
+      <div class="loginTitle">
+        <label for="password">Password</label>
+      </div>
+      <div class="loginInput">
+        <input class="text" name="password" type="password" />
+      </div>
+    </div>
+
+    <div>
+      <div class="loginBtnCSS">
+        <input  class="btn showLogout" type="submit" value="Login" />
+      </div>
+    </div>
   </form>
-  
+
+
+  {{!-- LOGOUT FORM --}}
+
+
+  <form id="signout" name="signout" method="get" action="/" style="display: none;">
+  <input id="logout-button" class="btn" type="submit" value="Logout" />
+  </form>
+
+{{!-- WHERE USER'S NAME IS DISPLAYED --}}
   <p id="name"></p>
 
-    <button id="signInBtn">Sign-In/Sign-Up</button>
-  <form id="signup" name="signup" method="post" action="/" 
-  style="display: none;"
-  >
+  <button id="signUpBtn">Sign Up</button>
+  <button id="loginBtn">Login</button>
+  <form id="signup" name="signup" method="post" action="/" style="display: none;">
     <div>
       <div id="signUpTitle">
         <labelfor="email">Email Address</label>
@@ -110,7 +134,7 @@
         <label for="lastname">Lastname</label>
       </div>
       <div id="signUpInput">
-        <input class="inputBox" name="lastname" type="text"/>
+        <input class="inputBox" name="lastname" type="text" />
       </div>
     </div>
 
@@ -124,14 +148,14 @@
     </div>
 
     <div>
-      <div  id="signUpBtn1">
-        <input class="btn" type="submit" value="Sign Up"/>
+      <div id="signUpBtn1">
+        <input class="btn showLogout" type="submit" value="Sign Up" />
       </div>
     </div>
   </form>
   {{{body}}}
   {{!-- <h1>Hello</h1> --}}
-<script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="/js/index.js"></script>
 </body>
 
