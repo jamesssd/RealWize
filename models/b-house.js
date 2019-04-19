@@ -178,6 +178,12 @@ module.exports = function(sequelize, DataTypes) {
     // This model needs a title, a body, and a category
   
   // Don't forget to 'return' the post after defining
+
+  Housing.associate = function(models) {
+    // Associating Houses with Posts
+    // When an Houses is deleted, also delete any associated Posts
+    Housing.hasMany(models.Favorites);
+  };
   return Housing;
 
 };

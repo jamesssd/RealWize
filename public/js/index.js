@@ -1,95 +1,87 @@
-$(document).ready(function() {
+// import { isContext } from "vm";
+
+$(document).ready(function () {
   // Getting a reference to the input field where user adds a city name
   var $cityInput = $("input.search-city");
-  var i=0;
+  var i = 0, iconRed = 0, favourite = 1;
+
   // Adding event listeners for deleting, editing, and adding 
-  // $(document).on("click", "button.delete", deleteTodo);
-  // $(document).on("click", ".todo-item", editTodo);
-  // $(document).on("keyup", ".todo-item", finishEdit);
-  // $(document).on("blur", ".todo-item", cancelEdit);
-  $(document).on("submit", "#todo-form", getPropertyListApi);
-  // document.getElementById("myBtn").addEventListener("click", getPropertyListApi);
-  
+   $(document).on("submit", "#todo-form", getPropertyListApi);
+  // document.getElementById("searchBtn").addEventListener("click", getPropertyListApi);
+
   // This function makes api call to get api data for city
   function getPropertyListApi(event) {
-  //  console.log("inserting values");
+    //  console.log("inserting values");
     event.preventDefault();
     //setting header info to send it as the last argument in axios get request
     var config = {
-      headers: 
+      headers:
       {
         "accept": "application/json",
-        "apikey" : "dcc3e13d6cf56f0afa62028c6856b7a7"
+        "apikey": "dcc3e13d6cf56f0afa62028c6856b7a7"
       }
     };
 
     // Getting the value from city textbox
     var cityName = $cityInput.val().trim();
     $cityInput.val("");
-    console.log("cityName client"+cityName);
+    console.log("cityName client" + cityName);
 
 
     //  axios get method to get api snapshot data    
-    axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/property/snapshot?cityname="+cityName, config)
+    axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/property/snapshot?cityname=" + cityName, config)
       .then(function (response) {
         // handle success
         console.log("outer axios");
         console.log(response);
-        //  for (i in response.data.property)
-        // while(i <10)
-        // {
         //Using callback recursive function to perform synchronous operation
         var callValue = axiosCall(i);
         function axiosCall(i) {
-          if(i>9) {
+          if (i > 9) {
             console.log("inside i");
             return i;
-      
           }// base case - exiting out of recursion
           else {
 
             var propertyID = response.data.property[i].identifier.obPropId;
-            console.log("value of propertyID=",propertyID);
-            console.log("value of i=",i);
-  
+            console.log("value of propertyID=", propertyID);
+            console.log("value of i=", i);
+
             //  axios get method to get api school data
-            axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/property/detailwithschools?id="+propertyID, config)
+            axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/property/detailwithschools?id=" + propertyID, config)
               .then(function (responseDetails) {
                 console.log("inner axios");
-                console.log("inner axios value of propertyID=",propertyID);
+                console.log("inner axios value of propertyID=", propertyID);
                 // handle success
-                console.log(responseDetails);
+                console.log(responseDetails);                               //map info
+                var longitudevalue = responseDetails.data.property[0].location.longitude;
+                var latitudeValue = responseDetails.data.property[0].location.latitude;
+                console.log("map values longitude = " + longitudevalue + "latitude = " + latitudeValue);
 
-                //map info
-                var longitudevalue= responseDetails.data.property[0].location.longitude; 
-                var latitudeValue = responseDetails.data.property[0].location.latitude; 
-                console.log("map values longitude = "+longitudevalue+"latitude = "+latitudeValue);
-             
                 var homeAddress = responseDetails.data.property[0].address.oneLine;
                 var city = responseDetails.data.property[0].address.locality;
                 //summary
-                var lotSize= responseDetails.data.property[0].lot.lotSize2;
-                var propertyClass= responseDetails.data.property[0].summary.propclass;
-                var propertySubtype= responseDetails.data.property[0].summary.propsubtype;
-                var yearBuilt= responseDetails.data.property[0].summary.yearbuilt;
-                var numberOfLevels= responseDetails.data.property[0].building.summary.levels;
+                var lotSize = responseDetails.data.property[0].lot.lotSize2;
+                var propertyClass = responseDetails.data.property[0].summary.propclass;
+                var propertySubtype = responseDetails.data.property[0].summary.propsubtype;
+                var yearBuilt = responseDetails.data.property[0].summary.yearbuilt;
+                var numberOfLevels = responseDetails.data.property[0].building.summary.levels;
 
-                //       date_listed: response.data.property[i].vintage.pubDate,
                 //Getting bedbath
                 var bathsFull = responseDetails.data.property[0].building.rooms.bathsfull;
                 var bathsHalf = responseDetails.data.property[0].building.rooms.bathshalf;
                 var bathsTotal = responseDetails.data.property[0].building.rooms.bathstotal;
                 var bedNumber = responseDetails.data.property[0].building.rooms.beds;
                 var roomTotal = responseDetails.data.property[0].building.rooms.roomsTotal;
-      
+
                 //utilities
                 var heatingFuel = responseDetails.data.property[0].utilities.heatingtype;
                 var heatingType = responseDetails.data.property[0].utilities.heatingtype;
-            
+
                 //parking
                 var garageType = responseDetails.data.property[0].building.parking.garagetype;
                 var parkingSize = responseDetails.data.property[0].building.parking.prkgSize;
-            
+
                 //schools
                 //school 1
                 var school1 = responseDetails.data.property[0].school[0].InstitutionName;
@@ -109,23 +101,18 @@ $(document).ready(function() {
                 //Listed Date
                 var listedDate = responseDetails.data.property[0].vintage.pubDate;
 
-
-
-
                 //  axios get method to get api price data
-                axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/assessmenthistory/detail?id="+propertyID, config)
+                axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/assessmenthistory/detail?id=" + propertyID, config)
                   .then(function (responsePrice) {
                     console.log("inner price axios");
-                    console.log("inner price axios value of propertyID=",propertyID);
+                    console.log("inner price axios value of propertyID=", propertyID);
                     // handle success
                     console.log(responsePrice);
-
-                    //map info
-                    var marketPrice= responsePrice.data.property[0].assessmenthistory[0].market.mktttlvalue; 
-                    console.log("market price = "+marketPrice);
-
- 
+                    //Price info
+                    var marketPrice = responsePrice.data.property[0].assessmenthistory[0].market.mktttlvalue;
+                    console.log("market price = " + marketPrice);
                     var houseDetails = {
+                      favouriteKey: favourite,
                       // homePropId: propertyID,
                       address: homeAddress,
                       citykey: city,
@@ -156,27 +143,25 @@ $(document).ready(function() {
                       listedDatekey: listedDate
 
                     };//End of object houseDetails
-                    console.log("api values",city);
+                    console.log("api values", city);
                     // POST route for inserting houseDetaild into db
-                    $.post("/api/homeList", houseDetails,function()
-                    {
-        
+                    $.post("/api/homeList", houseDetails, function () {
+
                     });//end of $.post("/api/homeList")
                     i++;
                     return axiosCall(i); // recursive call
-                  });//end of axios get price method 
+                  })//end of axios get price method 
               }) //End of axios get method to get api school data
               .catch(function (error) {
                 //  // handle error
                 console.log(error);
               });//end of axios catch error to get api snapshot data
-          
-       
+
           } // end of else
         }//end of function axiosCall(i)
-  
+
       })//end of axios get method to get api snapshot data    
-     
+
       .catch(function (error) {
         //  // handle error
         console.log(error);
@@ -196,26 +181,66 @@ $(document).ready(function() {
         });
     });
 
-    window.location="/api/homeListBasedCity/" + cityName;
+    window.location = "/api/homeListBasedCity/" + cityName;
   }//end of function getPropertyListApi
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  //  FAVOURITE ICON COLOR TOGGLE EFFECT
 
-});//end of document.ready function
+  $(".favorite").click(function () {
+    //TOGGLING COLOR USING MAIN IN CSS
+    $(this).toggleClass("main");
 
-//==============================================
-$.get("/username", function (name) {
+    //   object for passing favourite = 1 to perform insertion into favorite table
+    console.log("User Id: ", $(".user-info").attr("id"));
+    let userId = $(".user-info").attr("id");
+    let homeId = $(this).attr("id");
+    var userTableData = {
+      userId: userId,
+      homeId: homeId
+    };
 
-if (name==="false") return
-$("#name").text(name)
-});
+    console.log("FAV OBJECT: ", userTableData);
 
+
+
+    //if icon clicked and  = red
+    if ($(this).hasClass("main")) {
+      console.log("INSERTING FAVORITE");
+      //EXECUTING SAVING OF FAVOURITED HOMES
+      $.post("/api/insertFavourite", userTableData, function () {
+        iconRed = 1;
+      });
+      
+    }//end of if(iconRed === 1)
+
+    //if icon clicked again and  != red
+    else
+     {
+      //EXECUTING SAVING OF FAVOURITED HOMES
+      console.log("DELETING FAVORITE");
+      $.ajax({
+        method: "DELETE",
+        url: `/api/deleteFavourite/${userId}/${homeId}`
+      })
+        .then(function() {
+          // getPosts(postCategorySelect.val());
+          iconRed = 0;
+        });
+    }
+    //end  of else if (iconRed === 1)
+  });//End of ("#1").click(function()
+  
+ 
+  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+})//end of document.ready function
 
 //===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
-$("#signInBtn").click(function(){
-  
+$("#signInBtn").click(function () {
+
   $("#signup").slideToggle(1000, "swing");
 });
-$("#signInBtn1").click(function(){
-  
+$("#signInBtn1").click(function () {
+
   $("#signup").slideToggle(1000, "swing");
 });
 

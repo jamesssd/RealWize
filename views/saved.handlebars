@@ -2,9 +2,6 @@
 
 {{!-- HEADER --}}
 <div class="jumbotron">
-  <div class = "welcome">
-    <h4 class="user-info" id="{{user.id}}">Welcome  {{user.firstname}}</h4>
-  </div>
   <h1> <img src="https://requestreduce.org/images/house-logo-clipart-6.png" alt="House Logo" height="60px"> Real Wize
   </h1>
   <form id="todo-form">
@@ -26,7 +23,9 @@
     </div>
   </form>
 
-  
+  <div>
+    <h4 id='user-info' data-id="{{user.id}}">{{user.firstname}}</h4>
+  </div>
 </div>
 
 {{!-- Saved Searches section --}}
@@ -38,7 +37,7 @@
 
 
 <div class="row">
-  {{#each list}}
+  {{#each savedList}}
 
   {{!-- making each card a hyperlink --}}
   <div class="container"> 
