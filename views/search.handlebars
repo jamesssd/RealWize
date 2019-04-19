@@ -23,109 +23,34 @@
     </div>
   </form>
 
-</div>
-
-
-
-
-{{!-- <div class="jumbotron">
-      <h1 class="text-center">Real Wize</h1>
-</div>
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <form id="todo-form">
-              <div class="container">
-                <div class="row">
-                  <div class="col-10">
-                    <input class="search-city form-control" id= "box"  placeholder="Enter City Name" type="text" />
-                 
-                  </div>
-                  
-                  <div class="col-2">
-                    <button type="submit" class="btn btn-danger text-white">Search</button> --}}
-
-{{!-- =================================================================================== --}}
-{{!-- <a class="btn btn-danger text-white" type = "submit">Search</a> --}}
-{{!-- <a class="btn btn-danger " id = "myBtn" href="/api/homeListBasedCity/seattle" placeholder="Enter City Name">Search</a> --}}
-
-{{!-- =================================================================================== --}}
-{{!-- </div>
-                </div>
-              </div>
-            </form>
-        </div>
-      </div>
-        <br> --}}
-
-{{!-- <div id='results'>
-
-      </div> --}}
-{{!-- {{#each list}} --}}
-{{!-- <h1>Uno mas</h1> --}}
-
-{{!-- <div class="row"> --}}
-
-
-{{!-- {{this.address}} --}}
-
-
-{{!-- <div class="col-sm-12 col-sm-offset-2">
-          <div class="card mb-3 border border-primary">
-          <div class="row no-gutters">
-         <div class="col-md-4"> --}}
-
-
-{{!-- making each card a hyperlink --}}
-
-
-
-{{!-- <a href = "#"> --}}
-{{!-- <img src="home.jpg" class="card-img" alt="Home-image" > --}}
-{{!-- <img src="/images/home.jpg" class="card-img" alt="Home-image" >
-        </a>
-        </div>
-        <div class="col-md-8">
-       <div class="card-body"> --}}
-
-
-{{!-- making each card a hyperlink --}}
-
-
-
-{{!-- <a href = "#">
-        <h5 class="card-title">Price</h5>
-        
-        <p class="card-text">{{rooms_amenities}}</p>
-        <p class="card-text">{{rooms_amenities}} | {{lot_size}}</p>
-        <p class="card-text">{{address}}</p>
-        <p class="card-text"><small class="text-muted">Listing provided by ATTOM</small></p>
-      </a>
-      </div>
-    </div>
+  <div>
+    <h4 id='user-info' data-id="{{user.id}}">{{user.firstname}}</h4>
   </div>
-  
-  </div>
-
-
 </div>
 
-</div> --}}
-{{!-- {{/each}} --}}
-
-
+{{!-- Saved Searches section --}}
+<div class="row">
+        <div class="col-2">
+          <a href = "/api/savedHomes">Saved Houses</a>
+      </div>
+   </div>
 
 
 <div class="row">
   {{#each list}}
 
   {{!-- making each card a hyperlink --}}
-  <div class="container">
+  <div class="container"> 
     <img class="images"
       src="https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1" alt="">
-    <div class="middle">
+        {{!-- FAVOURITE ICON --}}
+        <div class="topleft">
+          <a href="#">
+            <i class="fa fa-heart favorite" id = "{{id}}" style="font-size:38px; "></i>
+         </a>
+        </div>
+      <div class="middle">
+     
       {{!-- MODAL BUTTON --}}
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{id}}"> Price Listing
         ${{priceDb}}</button>
@@ -157,7 +82,7 @@
         <div class="modal-body">
           <p class="card-text">
             <img class="images" src="https://cdnimages.familyhomeplans.com/plans/75977/75977-b1200.jpg" alt="">
-            <p>PRICE: ...</p>
+            <p>PRICE: ${{priceDb}}</p>
             <p>Bed Bath: {{bedDb}}beds {{bathDb}}baths</p>
           </p>
           <ul>

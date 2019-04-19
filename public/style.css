@@ -242,3 +242,20 @@ position: relative;
     margin-bottom: 10px; 
      
   }
+  /* FAVOURITE ICON POSITIONING LAYOUT*/
+  .container {
+    position: relative;
+  }
+  
+  .topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
+    /* color: gray; */
+  }
+/* FAVOURITE ICON TOGGLE COLOR*/
+ .main {
+    /* color: gray; */
+    color: red;
+  }
