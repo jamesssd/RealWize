@@ -84,6 +84,7 @@ h5{
     width: 100%;
     height: 100%;
     transition: .5s ease;
+   
     /* backface-visibility: hidden; */
     /* display: flex; */
 /* flex-wrap: wrap; */
@@ -233,8 +234,8 @@ position: relative;
     top: 20px;
     right: 20px;
     padding: 10px;
-    border: 2px solid rgb(223, 226, 16);
-    color: rgb(223, 226, 16);
+    border: 2px solid rgb(226, 16, 16);
+    color: rgb(226, 16, 34);
     border-radius: 20px;
     font-size: 15px;
     background: none;
@@ -327,6 +328,41 @@ position: relative;
     margin-bottom: 10px; 
     color: rgb(0, 140, 255);
      
+  }
+  /* FAVOURITE ICON POSITIONING LAYOUT*/
+  .test {
+    
+    position: relative;
+    
+  }
+  /* .hello{
+    position: relative;
+    z-index: -1;
+  } */
+  
+  .topleft {
+    position: absolute;
+    top: 10px;
+    left: 26px;
+    font-size: 48px;
+    display: block;
+    z-index: 6;
+    opacity: 1;
+    height:38px;
+    width:38px;
+    color:red;
+    /* color: gray; */
+  }
+/* FAVOURITE ICON TOGGLE COLOR*/
+ .main {
+    /* color: gray; */
+    color: red;
+  }
+
+  .welcome{
+    text-align: right;
+    color: rgb(139, 0, 42);
+    
   }
 
   input.search-city{

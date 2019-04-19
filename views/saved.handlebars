@@ -1,0 +1,146 @@
+{{!-- THIS IS THE SEARCH PAGE --}}
+
+{{!-- HEADER --}}
+<div class="jumbotron">
+  <h1> <img src="https://requestreduce.org/images/house-logo-clipart-6.png" alt="House Logo" height="60px"> Real Wize
+  </h1>
+  <form id="todo-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <input class="search-city form-control" placeholder="Enter City Name" type="text" />
+        </div>
+        <div class="col-2">
+          <button type="submit" id="searchBtn" class="btn btn-danger text-white"><img id="searchIcon" src="http://cdn.onlinewebfonts.com/svg/download_61448.png" alt="Search icon"></button>
+
+          {{!-- <a class="btn btn-danger text-white" type = "submit">Search</a> --}}
+          {{!-- <div class="col-3">
+        <a class="btn btn-danger text-white " id="searchBtn" href="/api/homeList" placeholder="Enter City Name">
+         
+        </a> --}}
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div>
+    <h4 id='user-info' data-id="{{user.id}}">{{user.firstname}}</h4>
+  </div>
+</div>
+
+{{!-- Saved Searches section --}}
+<div class="row">
+        <div class="col-2">
+          <a href = "/api/favorites/{{user.id}}" id = "savedHomes">Saved Houses</a>
+      </div>
+   </div>
+
+
+<div class="row">
+  {{#each savedList}}
+
+  {{!-- making each card a hyperlink --}}
+  <div class="container"> 
+    
+    <img class="images"
+      src="https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1" alt="">
+        {{!-- FAVOURITE ICON --}}
+       
+        <div class="topleft">
+          <a href="#">
+            <i class="fa fa-heart favorite" id = "{{id}}" style="font-size:38px; width: 38px; height:38px;"></i>
+         </a>
+        
+        </div>
+      <div class="middle">
+     
+      {{!-- MODAL BUTTON --}}
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{id}}"> Price Listing
+        ${{priceDb}}</button>
+
+      <p class="card-text"><small class="text-muted">Listing provided by ATTOM</small></p>
+
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- THIS IS THE MODEL CONTAINER--}}
+  <div class="modal fade" id="exampleModal{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{addressDb}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {{!-- THIS IS WHERE INFO FOR MODAL WILL GO --}}
+        <div class="modal-body">
+          <p class="card-text">
+            <img class="images" src="https://cdnimages.familyhomeplans.com/plans/75977/75977-b1200.jpg" alt="">
+            <p>PRICE: ${{priceDb}}</p>
+            <p>Bed Bath: {{bedDb}}beds {{bathDb}}baths</p>
+          </p>
+          <ul>
+            <h5>Summary</h5>
+            <li>Lot Size: {{lotDb}}</li>
+            <li>Property Type: {{propertyDb}}</li>
+             <li>Property SubType: {{propertySubtypeDb}}</li>
+             <li>Year Built: {{yearBuiltDb}}</li>
+             <li>Levels: {{numberOfLevelsDb}}</li>
+             <li>Listed Date: {{listedDateDB}}</li>
+          </ul>
+          
+         <ul>
+            <h5>BedBath Information</h5>
+            <li>No: of Full bath : {{bathsFullkeyDb}}</li>
+            <li>No: of Half bath : {{bathsHalfDb}}</li>
+             <li>Total Bath : {{bathDb}}</li>
+             <li>No: of bedrooms : {{bedDb}}</li>
+             <li>Total Rooms : {{roomsDb}}</li>
+          </ul>
+
+          <ul>
+            <h5>Heating</h5>
+            <li>Heating Fuel : {{heatDb}}</li>
+            <li>Heating Type : {{heatingTypeDb}}</li>
+          </ul>
+
+          <ul>
+            <h5>Garage Information</h5>
+            <li>Heating Fuel : {{garageDb}}</li>
+            <li>Heating Type : {{parkingSizeDb}}</li>
+          </ul>
+
+          <ul>
+            <h5>List of Schools</h5>
+            <li>School Name: {{school1keyDb}}</li>
+            <li>Rating: {{school1RatingkeyDb}}</li>
+             <li>Distance: {{school1DistanceDb}}</li>
+             <hr>
+             <li>School Name: {{school2keyDb}}</li>
+             <li>Rating: {{school2RatingkeyDb}}</li>
+              <li>Distance: {{school2DistanceDb}}</li>
+              <hr>
+            <li>School Name: {{school3keyDb}}</li>
+             <li>Rating: {{school3RatingkeyDb}}</li>
+             <li>Distance: {{school3DistanceDb}}</li>
+          </ul>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
