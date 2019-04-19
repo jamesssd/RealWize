@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-$(document).ready(function () {
-  // Getting a reference to the input field where user adds a city name
-  var $cityInput = $("input.search-city");
-  var i = 0;
-  // Adding event listeners for deleting, editing, and adding 
-  // $(document).on("click", "button.delete", deleteTodo);
-  // $(document).on("click", ".todo-item", editTodo);
-  // $(document).on("keyup", ".todo-item", finishEdit);
-  // $(document).on("blur", ".todo-item", cancelEdit);
-  $(document).on("submit", "#todo-form", getPropertyListApi);
-  // document.getElementById("myBtn").addEventListener("click", getPropertyListApi);
-=======
 // import { isContext } from "vm";
 
 $(document).ready(function () {
@@ -21,7 +8,6 @@ $(document).ready(function () {
   // Adding event listeners for deleting, editing, and adding 
    $(document).on("submit", "#todo-form", getPropertyListApi);
   // document.getElementById("searchBtn").addEventListener("click", getPropertyListApi);
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
 
   // This function makes api call to get api data for city
   function getPropertyListApi(event) {
@@ -54,10 +40,6 @@ $(document).ready(function () {
           if (i > 9) {
             console.log("inside i");
             return i;
-<<<<<<< HEAD
-
-=======
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
           }// base case - exiting out of recursion
           else {
 
@@ -69,17 +51,6 @@ $(document).ready(function () {
             axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/property/detailwithschools?id=" + propertyID, config)
               .then(function (responseDetails) {
                 console.log("inner axios");
-<<<<<<< HEAD
-                // console.log("inner axios value of propertyID=",propertyID);
-                // handle success
-                // console.log(responseDetails);
-
-                //map info
-                var longitudevalue = responseDetails.data.property[0].location.longitude;
-                var latitudeValue = responseDetails.data.property[0].location.latitude;
-                // console.log("map values longitude = "+longitudevalue+"latitude = "+latitudeValue);
-
-=======
                 console.log("inner axios value of propertyID=", propertyID);
                 // handle success
                 console.log(responseDetails);                               //map info
@@ -87,7 +58,6 @@ $(document).ready(function () {
                 var latitudeValue = responseDetails.data.property[0].location.latitude;
                 console.log("map values longitude = " + longitudevalue + "latitude = " + latitudeValue);
 
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
                 var homeAddress = responseDetails.data.property[0].address.oneLine;
                 console.log("THIS IS HOME ADDRESS" + homeAddress);
                 var city = responseDetails.data.property[0].address.locality;
@@ -139,18 +109,9 @@ $(document).ready(function () {
                     console.log("inner price axios value of propertyID=", propertyID);
                     // handle success
                     console.log(responsePrice);
-<<<<<<< HEAD
-
-                    //map info
-                    var marketPrice = responsePrice.data.property[0].assessmenthistory[0].market.mktttlvalue;
-                    console.log("market price = " + marketPrice);
-
-
-=======
                     //Price info
                     var marketPrice = responsePrice.data.property[0].assessmenthistory[0].market.mktttlvalue;
                     console.log("market price = " + marketPrice);
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
                     var houseDetails = {
                       favouriteKey: favourite,
                       // homePropId: propertyID,
@@ -183,12 +144,7 @@ $(document).ready(function () {
                       listedDatekey: listedDate
 
                     };//End of object houseDetails
-<<<<<<< HEAD
-                    // console.log("api values",city);
-                    console.log("THIS IT THE ADDRESS: " + address);
-=======
                     console.log("api values", city);
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
                     // POST route for inserting houseDetaild into db
                     $.post("/api/homeList", houseDetails, function () {
 
@@ -202,10 +158,6 @@ $(document).ready(function () {
                 console.log(error);
               });//end of axios catch error to get api snapshot data
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
           } // end of else
         }//end of function axiosCall(i)
 
@@ -239,15 +191,12 @@ $(document).ready(function () {
     console.log("FAV OBJECT: ", userTableData);
 
 
-<<<<<<< HEAD
   if (name === "false") return;
   $("#name").text(name);
   $("#loginBtn").hide();
   $("#signUpBtn").hide();
   $("#signout").fadeIn(100, "swing");
 });
-=======
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
 
     //if icon clicked and  = red
     if ($(this).hasClass("main")) {
@@ -281,7 +230,6 @@ $(document).ready(function () {
 })//end of document.ready function
 
 //===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
-<<<<<<< HEAD
 
 $("#signUpBtn").click(function () {
 
@@ -296,12 +244,6 @@ $("#loginBtn").click(function () {
   $("#signup").fadeOut(1000, "swing");
   
 });
-=======
-$("#signInBtn").click(function () {
-
-  $("#signup").slideToggle(1000, "swing");
-});
->>>>>>> 63f19be418debb74cdc2a97e32a1d9ca26ae330c
 $("#signInBtn1").click(function () {
 
   $("#signup").slideToggle(1000, "swing");
