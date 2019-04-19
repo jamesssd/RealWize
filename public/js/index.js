@@ -183,6 +183,18 @@ $(document).ready(function() {
       });
     //********* just comment below line of code to trigger api call and insert api data into db and 
     //  uncomment it once u have enough records in your table  ***************************** 
+    
+    //This looks for the scrape photos in the listed URL below
+    
+    axios.get("http://decoryourhomes.com/2019/03/01/40-the-dream-house-mansions-game").then(function(response) {
+        // Then, we load that into cheerio and save it to $ for a shorthand selector
+        var $ = cheerio.load(response.data);
+    
+        $(".jetpack-lazy-image").each(function (i, element) {
+            console.log(element.attribs.src);
+    
+        });
+    });
 
     window.location="/api/homeListBasedCity/" + cityName;
   }//end of function getPropertyListApi

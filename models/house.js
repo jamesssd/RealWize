@@ -1,8 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   // Add code here to create a Post model
   var Housing = sequelize.define("Housing", {
-    
-      
     // propertyIdDb: {
     //   type: DataTypes.BIGINT,
     //   validate: {
@@ -181,5 +179,6 @@ module.exports = function(sequelize, DataTypes) {
   
   // Don't forget to 'return' the post after defining
   return Housing;
+
 };
   

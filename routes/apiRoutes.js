@@ -82,7 +82,7 @@ module.exports = function(app) {
         // status: 'active'
       }
     }).then(function(dbProperty) {
-      console.log("i am exec"+req.params.cityName);
+      console.log("You're looking for houses in "+req.params.cityName);
       // We have access to the homeList as an argument inside of the callback function
       var propertyListObject = {
         list: dbProperty
