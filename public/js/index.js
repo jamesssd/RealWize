@@ -181,7 +181,7 @@ $(document).ready(function () {
         });
     });
 
-    window.location = "/api/homeListBasedCity/" + cityName;
+    // window.location = "/api/homeListBasedCity/" + cityName;
   }//end of function getPropertyListApi
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   //  FAVOURITE ICON COLOR TOGGLE EFFECT
