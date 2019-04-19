@@ -21,6 +21,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   {{!-- <div class="col-3"> --}}
         {{!-- <a class="btn btn-danger text-white " id="signInBtn" href="/" >
          Sign-In/Sign-Up
@@ -37,46 +38,115 @@
     </form> --}}
 
   <form id="signup" name="signup" method="post" action="/signup" 
-  style="display: none;"
-  >
-    <div>
-      <div id="signInTitle">
+=======
+  <form id="signup" name="signup" method="post" action="/signup" style="display: none;">
+    {{!-- <label for="email">Email Address</label>
+    <input class="text" name="email" type="email" />
+    <label for="firstname">Firstname</label>
+    <input name="firstname" type="text" />
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    <input class="btn" type="submit" value="Sign Up" /> --}}
+        <div>
+      <div id="signUpTitle">
         <labelfor="email">Email Address</label>
       </div>
-      <div id="signInInput">
+      
+      <div id="signUpInput">
         <input class="text inputBox" name="email" type="email" />
       </div>
     </div>
 
     <div>
-      <div id="signInTitle">
+      <div id="signUpTitle">
         <label for="firstname">Firstname</label>
       </div>
-      <div id="signInInput">
+      <div id="signUpInput">
         <input class="inputBox" name="firstname" type="text" />
       </div>
     </div>
 
     <div>
-      <div id="signInTitle">
+      <div id="signUpTitle">
         <label for="lastname">Lastname</label>
       </div>
-      <div id="signInInput">
+      <div id="signUpInput">
         <input class="inputBox" name="lastname" type="text"/>
       </div>
     </div>
 
     <div>
-      <div id="signInTitle">
+      <div id="signUpTitle">
         <label for="password">Password</label>
       </div>
-      <div id="signInInput">
+      <div id="signUpInput">
         <input class="inputBox" name="password" type="password" />
       </div>
     </div>
 
     <div>
-      <div  id="signInBtn1">
+      <div  id="signUpBtn1">
+        <input class="btn" type="submit" value="Sign Up"/>
+      </div>
+    </div>
+  </form>
+
+  <form id="signin" name="signin" method="post" action="/">
+    <label for="email">Email Address</label>
+    <input class="text" name="email" type="email" />
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    <input class="btn" type="submit" value="Login" />
+  </form>
+  <form id="signout" name="signout" method="get" action="/" />
+  <input id= "logout-button" class="btn" type="submit" value="Logout" />
+  </form>
+  
+  <p id="name"></p>
+
+    <button id="signInBtn">Sign-In/Sign-Up</button>
+  <form id="signup" name="signup" method="post" action="/" 
+>>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
+  style="display: none;"
+  >
+    <div>
+      <div id="signUpTitle">
+        <labelfor="email">Email Address</label>
+      </div>
+      <div id="signUpInput">
+        <input class="text inputBox" name="email" type="email" />
+      </div>
+    </div>
+
+    <div>
+      <div id="signUpTitle">
+        <label for="firstname">Firstname</label>
+      </div>
+      <div id="signUpInput">
+        <input class="inputBox" name="firstname" type="text" />
+      </div>
+    </div>
+
+    <div>
+      <div id="signUpTitle">
+        <label for="lastname">Lastname</label>
+      </div>
+      <div id="signUpInput">
+        <input class="inputBox" name="lastname" type="text"/>
+      </div>
+    </div>
+
+    <div>
+      <div id="signUpTitle">
+        <label for="password">Password</label>
+      </div>
+      <div id="signUpInput">
+        <input class="inputBox" name="password" type="password" />
+      </div>
+    </div>
+
+    <div>
+      <div  id="signUpBtn1">
         <input class="btn" type="submit" value="Sign Up"/>
       </div>
     </div>

@@ -5,6 +5,7 @@ const url = require("url");
 module.exports = function(app) {
   //   // Get all examples
   app.get("/", function(req, res) {
+<<<<<<< HEAD
       // if req.user is true, that means that the user is logged in
       console.log("REQ.USER ", req.user);
       if(req.user){
@@ -18,6 +19,24 @@ module.exports = function(app) {
         console.log("not doing login");
         res.render("index");
       }  
+=======
+    // if req.user is true, that means that the user is logged in
+    if(req.user){
+      console.log("REQ.USER ", req.user);
+      var hbsObject = {
+        user: req.user
+      };
+      res.render("index", hbsObject);
+    }else{
+      res.render("index");
+    }
+    // console.log("Findall DATA: ", dbExamples)
+    // var hbsObject = {
+    //   user: "hello",
+    //   list: dbExamples
+    // };
+    
+>>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
   });//End of app.get(/)
 
     // POST route for inserting api property data into housings table
@@ -115,6 +134,7 @@ app.delete("/api/deleteFavourite/:user/:house", function(req, res) {
       }
     }).then(function(dbProperty) {
 
+<<<<<<< HEAD
       // if the user is logged in
       if(req.user){
         console.log("i am exec",dbProperty);
@@ -134,6 +154,17 @@ app.delete("/api/deleteFavourite/:user/:house", function(req, res) {
       }
     }).catch(err => {
       throw err;
+=======
+        // let cleanArray = [];
+        // for (let i = 0; i < dbProperty.length; i++) {
+        //   cleanArray.push(dbProperty[i].dataValues)
+        // }
+        // console.log("CLEAN ARRAY: ", cleanArray)
+        // res.json(dbProperty);
+        // res.render("index",citytest);
+      res.render("search",propertyListObject );
+        
+>>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
     });//end of db.Housing.findAll.then
     // {list: cleanArray}
   });//end of app.get(/api/homeListBasedCity/:cityName")

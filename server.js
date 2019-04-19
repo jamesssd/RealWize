@@ -30,8 +30,8 @@ var PORT = process.env.PORT || 4100;
 
 
 //Passport requirements
- var passport   = require('passport')
-var session    = require('express-session')
+var passport   = require("passport");
+var session    = require("express-session");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
 var exphbs = require("express-handlebars");
@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 
 // For Passport
  
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: "keyboard cat",resave: true, saveUninitialized:true})); // session secret
  
 app.use(passport.initialize());
  
@@ -82,7 +82,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/apiRoutes.js")(app);
-require('./routes/auth.js')(app,passport);
+require("./routes/auth.js")(app,passport);
 require("./config/passport.js")(passport, db.user);
 
 var syncOptions = { force: false };

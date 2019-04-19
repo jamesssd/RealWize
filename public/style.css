@@ -8,6 +8,25 @@ body{
   
 
 }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
+}
+
+#particle-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+h1{
+  font-size: 100px;
+}
+
 div{
   margin: 0;
   padding: 0;
@@ -103,8 +122,9 @@ display: none;
   margin: 0;
   height:27px; 
   width:38px;
-  background: white;
+  background: none;
   mix-blend-mode: multiply;
+  display: inline;
 
 }
  #searchBtn{
@@ -118,11 +138,12 @@ display: none;
  }
  #searchBtn:hover{
 border: 3px solid blue;
+background: none;
    
 
  }
  .jumbotron{
-   background: rgba(240, 236, 6, 0.568);
+   background: rgba(10, 10, 10, 0.26);
    padding: 20px;
    margin:0;
    border-radius: 0px;
@@ -144,13 +165,26 @@ position: relative;
     z-index: -1;   
   }
   .modal-content{
-    background: rgba(0, 0, 0, 0.322);
-    border-radius: 0px;
+    background: rgba(4, 134, 194, 0.89);
+        border-radius: 0px;
     border: 10px solid rgba(245, 245, 245, 0.295);
     width: 130%;
+    height: 80%;
+    display: block;
+    color: white;
+    
+  
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 3;
+  
+ 
+  }
+  .modal-body{
+    
   }
   #mainPage {
-    background-image: url(http://wallpapercave.com/wp/ecGPRsc.jpg);
+    /* background-image: url(http://wallpapercave.com/wp/ecGPRsc.jpg); */
     background-repeat: no-repeat;
    background-size: cover;
    position: absolute;
@@ -169,7 +203,8 @@ position: relative;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.507);
-  padding: 50px;
+  padding: 10px;
+  height: 50%;
   
   
   }
@@ -183,18 +218,28 @@ position: relative;
     /* background: black; */
   }
   #todo-form{
-    display: block;
-    width: 100%;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+  }
+  div.col-9{
+    padding: 0;
+    margin: 0px;
+  }
+  div.col-3{
+    padding: 0;
+    margin-left: 2px;
   }
   #signInBtn{
     position: absolute;
     top: 20px;
     right: 20px;
     padding: 10px;
-    border: 2px solid rgb(0,96,182);
-    color: rgb(0,96,182);
-    border-radius: 5px;
-    font-size: 15px; 
+    border: 2px solid rgb(223, 226, 16);
+    color: rgb(223, 226, 16);
+    border-radius: 20px;
+    font-size: 15px;
+    background: none;
     z-index: 1;
 
   }
@@ -206,27 +251,31 @@ position: relative;
   #signup{
     
     display: block;
-    position: absolute;
+    position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  width: 40%;
+  width: 50%;
   margin: auto;
-    background: rgba(218, 17, 17, 0.596);
+    background: rgba(4, 134, 194, 0.89);
     padding: 70px;
+    color: white;
+    border: 2px solid white;
+    font-size: 20px;
     
   }
-  #signInTitle{
+  #signUpTitle{
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  #signInInput{
+  #signUpInput{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    color: rgb(0, 174, 255);
    
   }
   input.inputBox{
@@ -235,13 +284,15 @@ position: relative;
     width: 200px;
     text-align: center; 
   }
-  #signInBtn1{
+  #signUpBtn1{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px; 
+    color: rgb(0, 140, 255);
      
   }
+<<<<<<< HEAD
   /* FAVOURITE ICON POSITIONING LAYOUT*/
   .container {
     position: relative;
@@ -259,3 +310,43 @@ position: relative;
     /* color: gray; */
     color: red;
   }
+=======
+
+  input.search-city{
+    width: 200px;
+  }
+
+  input.inputBox{
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary{
+    padding: 20px;
+    color: rgb(17, 109, 185);
+    font-size: 20px;
+    background: none;
+    border: none;
+
+  }
+  .bouncy{
+     animation:bouncy 5s infinite linear;
+     position:relative;
+    }
+    @keyframes bouncy {
+     0%{top:0em}
+     40%{top:0em}
+     43%{top:-0.9em}
+     46%{top:0em}
+     48%{top:-0.4em}
+     50%{top:0em}
+     100%{top:0em;}
+    }
+
+
+
+
+
+
+  
+>>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
