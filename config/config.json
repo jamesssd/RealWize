@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Password",
+    "password": "Kingme94",
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql",
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": "password",
+    "password": "Kingme94",
     "database": "RealWize_DB",
     "host": "localhost",
     "dialect": "mysql",
