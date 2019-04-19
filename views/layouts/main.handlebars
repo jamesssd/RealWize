@@ -6,8 +6,8 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow|Raleway|Varela+Round" rel="stylesheet">
-  {{!-- Font Awesome CDN--}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{{!-- Bootstrap CDN --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   {{!-- Axios CDN --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -21,32 +21,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-  {{!-- <div class="col-3"> --}}
-        {{!-- <a class="btn btn-danger text-white " id="signInBtn" href="/" >
-         Sign-In/Sign-Up
-        </a> --}}
-    <button id="signInBtn">Sign-In/Sign-Up</button>
-
-  {{!-- <form action="/signin" method="POST">
-        <label for="email">Email Address</label>
-        <input class="text inputBox" name="email" type="email" />
-        <label for="password">Password</label>
-        <input class="text inputBox" name="password" type="password" />
-      <button>{{#if user}}Logout{{else}}Login{{/if}}</button>
-
-    </form> --}}
-
-  <form id="signup" name="signup" method="post" action="/signup" 
-=======
   <form id="signup" name="signup" method="post" action="/signup" style="display: none;">
-    {{!-- <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="firstname">Firstname</label>
-    <input name="firstname" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Sign Up" /> --}}
+    
         <div>
       <div id="signUpTitle">
         <labelfor="email">Email Address</label>
@@ -91,22 +67,24 @@
     </div>
   </form>
 
-  <form id="signin" name="signin" method="post" action="/">
+  {{!-- <form id="signin" name="signin" method="post" action="/">
     <label for="email">Email Address</label>
     <input class="text" name="email" type="email" />
     <label for="password">Password</label>
     <input name="password" type="password" />
     <input class="btn" type="submit" value="Login" />
-  </form>
-  <form id="signout" name="signout" method="get" action="/" />
+  </form> --}}
+  <form id="signout" name="signout" method="get" action="/" >
+  <br>
   <input id= "logout-button" class="btn" type="submit" value="Logout" />
+<br>
+<br>
   </form>
   
   <p id="name"></p>
 
     <button id="signInBtn">Sign-In/Sign-Up</button>
   <form id="signup" name="signup" method="post" action="/" 
->>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
   style="display: none;"
   >
     <div>

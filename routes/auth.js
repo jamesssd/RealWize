@@ -35,15 +35,7 @@ module.exports = function (app, passport) {
 
   // app.get('/failed', 
 
-<<<<<<< HEAD
-  app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/',
-    failureRedirect: '/'
-  }
-  ));
-=======
   app.get("/", authController.signin), {
->>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
 
     successRedirect: "index",
     failureRedirect: "/failed"
@@ -83,4 +75,3 @@ function isLoggedIn(req, res, next) {
 
   res.redirect("/index");
 }
-

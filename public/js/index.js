@@ -6,8 +6,8 @@ $(document).ready(function () {
   var i = 0, iconRed = 0, favourite = 1;
 
   // Adding event listeners for deleting, editing, and adding 
-  $(document).on("submit", "#todo-form", getPropertyListApi);
-  // document.getElementById("myBtn").addEventListener("click", getPropertyListApi);
+   $(document).on("submit", "#todo-form", getPropertyListApi);
+  // document.getElementById("searchBtn").addEventListener("click", getPropertyListApi);
 
   // This function makes api call to get api data for city
   function getPropertyListApi(event) {
@@ -101,7 +101,6 @@ $(document).ready(function () {
                 //Listed Date
                 var listedDate = responseDetails.data.property[0].vintage.pubDate;
 
-<<<<<<< HEAD
                 //  axios get method to get api price data
                 axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/assessmenthistory/detail?id=" + propertyID, config)
                   .then(function (responsePrice) {
@@ -114,25 +113,6 @@ $(document).ready(function () {
                     console.log("market price = " + marketPrice);
                     var houseDetails = {
                       favouriteKey: favourite,
-=======
-
-
-
-                //  axios get method to get api price data
-                axios.get("https://search.onboard-apis.com/propertyapi/v1.0.0/assessmenthistory/detail?id="+propertyID, config)
-                  .then(function (responsePrice) {
-                    console.log("inner price axios");
-                    console.log("inner price axios value of propertyID=",propertyID);
-                    // handle success
-                    console.log(responsePrice);
-
-                    //map info
-                    var marketPrice= responsePrice.data.property[0].assessmenthistory[0].market.mktttlvalue; 
-                    console.log("market price = "+marketPrice);
-
- 
-                    var houseDetails = {
->>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
                       // homePropId: propertyID,
                       address: homeAddress,
                       citykey: city,
@@ -163,7 +143,6 @@ $(document).ready(function () {
                       listedDatekey: listedDate
 
                     };//End of object houseDetails
-<<<<<<< HEAD
                     console.log("api values", city);
                     // POST route for inserting houseDetaild into db
                     $.post("/api/homeList", houseDetails, function () {
@@ -172,17 +151,6 @@ $(document).ready(function () {
                     i++;
                     return axiosCall(i); // recursive call
                   })//end of axios get price method 
-=======
-                    console.log("api values",city);
-                    // POST route for inserting houseDetaild into db
-                    $.post("/api/homeList", houseDetails,function()
-                    {
-        
-                    });//end of $.post("/api/homeList")
-                    i++;
-                    return axiosCall(i); // recursive call
-                  });//end of axios get price method 
->>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
               }) //End of axios get method to get api school data
               .catch(function (error) {
                 //  // handle error
@@ -211,8 +179,8 @@ $(document).ready(function () {
     $(this).toggleClass("main");
 
     //   object for passing favourite = 1 to perform insertion into favorite table
-    console.log("User Id: ", $('#user-info').attr('data-id'));
-    let userId = $('#user-info').attr('data-id');
+    console.log("User Id: ", $(".user-info").attr("id"));
+    let userId = $(".user-info").attr("id");
     let homeId = $(this).attr("id");
     var userTableData = {
       userId: userId,
@@ -222,7 +190,6 @@ $(document).ready(function () {
     console.log("FAV OBJECT: ", userTableData);
 
 
-<<<<<<< HEAD
 
     //if icon clicked and  = red
     if ($(this).hasClass("main")) {
@@ -250,24 +217,10 @@ $(document).ready(function () {
     }
     //end  of else if (iconRed === 1)
   });//End of ("#1").click(function()
-  // $("#2").click(function(){
-  //   $("#2").toggleClass("main");
-  // });
-
-  // })
+  
+ 
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 })//end of document.ready function
-=======
-});//end of document.ready function
-
-//==============================================
-$.get("/username", function (name) {
-
-if (name==="false") return
-$("#name").text(name)
-});
-
->>>>>>> 2bab68e4d5873d08e11db2bdae8a8bdc1222a558
 
 //===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
 $("#signInBtn").click(function () {
