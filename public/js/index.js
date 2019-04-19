@@ -196,7 +196,7 @@ $(document).ready(function () {
   $("#loginBtn").hide();
   $("#signUpBtn").hide();
   $("#signout").fadeIn(100, "swing");
-});
+  });
 
     //if icon clicked and  = red
     if ($(this).hasClass("main")) {
@@ -227,7 +227,7 @@ $(document).ready(function () {
   
  
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-})//end of document.ready function
+//end of document.ready function
 
 //===============SIGN IN BUTTON TO TOGGLE THE MODAL FOR THE SIGN-UP FORM===========//
 
