@@ -83,6 +83,7 @@ module.exports = function(app) {
       }
     }).then(function(dbProperty) {
       console.log("i am exec"+req.params.cityName);
+      console.log("THIS IS THE ADDRESS "+req.body.address);
       // We have access to the homeList as an argument inside of the callback function
       var propertyListObject = {
         list: dbProperty
