@@ -49,6 +49,11 @@ module.exports = function(sequelize, Sequelize) {
  
  
   });
+  User.associate = function(models) {
+    // Associating Users with Posts
+    // When an Users is deleted, also delete any associated Posts
+    User.hasMany(models.Favorites);
+  };
  
   return User;
  

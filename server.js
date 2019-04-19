@@ -85,7 +85,7 @@ require("./routes/apiRoutes.js")(app);
 require("./routes/auth.js")(app,passport);
 require("./config/passport.js")(passport, db.user);
 
-//var syncOptions = { force: false };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
@@ -95,7 +95,7 @@ if (process.env.NODE_ENV === "test") {
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(function() {
+db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:"+
