@@ -190,11 +190,18 @@ $(document).ready(function () {
   $(".favorite").click(function () 
 {
   $(this).toggleClass("main");
+  console.log("User Id: ", $(".user-info").attr("id"));
+  let userId = $(".user-info").attr("id");
+  let homeId = $(this).attr("id");
+  var userTableData = {
+    userId: userId,
+    homeId: homeId
+  };
 //if icon clicked and  = red
 if ($(this).hasClass("main")) {
   
   console.log("INSERTING FAVORITE");
-  
+
 
   //EXECUTING SAVING OF FAVOURITED HOMES
   $.post("/api/insertFavourite", userTableData, function () {
