@@ -1,23 +1,17 @@
 var db = require("../models");
 const url = require("url");
-
-
 module.exports = function (app) {
   //   // Get all examples
   app.get("/", function (req, res) {
     // if req.user is true, that means that the user is logged in
     console.log("REQ.USER ", req.user);
     // if (req.user) {
-      console.log("doing login");
-      console.log("REQ.USER ", req.user);
-      var hbsObject = {
-        user: req.user
-      };
-      res.render("index", hbsObject);
-    // } else {
-      // console.log("not doing login");
-      // res.render("index");
-    // }
+    console.log("doing login");
+    console.log("REQ.USER ", req.user);
+    var hbsObject = {
+      user: req.user
+    };
+    res.render("index", hbsObject);
   });//End of app.get(/)
 
   // POST route for inserting api property data into housings table
@@ -28,7 +22,6 @@ module.exports = function (app) {
     //  console.log("going into db",)
     // if(req.body.favouriteKey === 0)
     // {
-
     db.Housing.create({
       // propertyIdDb: req.body.homePropId,
       addressDb: req.body.address,
@@ -58,19 +51,15 @@ module.exports = function (app) {
       // school3RatingkeyDb: req.body.school3Ratingkey,
       // school3DistanceDb: req.body.school3Distancekey,
       listedDateDB: req.body.listedDatekey
-
       // rooms_amenities: req.body.roomsAmenities,
     }).then(function (results) {
       // `results` here would be the newly created row
-
       res.json(results);
     }).catch(err => {
       throw err;
     });//end of catch
-
   });//end of post /api/homeList"
 
-  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   // POST route for inserting favourited homeid and corresponding userid data into users table
   app.post("/api/insertFavourite", function (req, res) {
     db.Favorites.create({
@@ -80,14 +69,12 @@ module.exports = function (app) {
 
     }).then(function (resultsFavoriteInsert) {
       // `results` here would be the newly created row
-
       res.json(resultsFavoriteInsert);
     }).catch(err => {
       throw err;
     });//end of catch
 
   });//end of post /api/insertFavourite"
-
 
   //Delete route for deleting userid and favourited home id from favrite table
   app.delete("/api/deleteFavourite/:user/:house", function (req, res) {
@@ -102,7 +89,6 @@ module.exports = function (app) {
       throw err;
     });//end of catch
   });//end of post /api/deleteFavourite/:id"
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
   // GET route for getting all of the homeList
   app.get("/api/homeListBasedCity/:cityName", function (req, res) {
     // findAll returns all entries for a table when used with no options
@@ -114,7 +100,6 @@ module.exports = function (app) {
         // status: 'active'
       }
     }).then(function (dbProperty) {
-
       // if the user is logged in
       if (req.user) {
         // console.log("i am exec",dbProperty);
@@ -128,7 +113,7 @@ module.exports = function (app) {
       } else {
         var propertyListObject = {
           list: dbProperty
-        }
+        };
         // if they're not logged in, only send back the property data object
         res.render("search", propertyListObject);
       }
@@ -137,7 +122,6 @@ module.exports = function (app) {
     });//end of db.Housing.findAll.then
     // {list: cleanArray}
   });//end of app.get(/api/homeListBasedCity/:cityName")
-  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   // GET route for getting all of the saved favorited homeList
   app.get("/api/favorites/:id", function (req, res) {
     // Here we add an "include" property to our options in our findAll query
@@ -148,7 +132,6 @@ module.exports = function (app) {
         id: req.params.id
       },
       include: [db.Housings]
-
     }).then(function (dbSaved) {
       var savedListObject = {
         savedList: dbSaved
@@ -157,6 +140,4 @@ module.exports = function (app) {
       res.render("saved", savedListObject);
     });
   });
-
-  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 };//end of module.exports
