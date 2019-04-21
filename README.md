@@ -1,6 +1,6 @@
 # project_2 - RealWize
 
-This is a real estate website which will allow users to search properties based on city and will allow users to favorite homes they like.
+This is a real estate website which will allow users to search properties based on city and will allow users to favorite the homes they like.
 
 ## Instructions:
 API which provides all the property information is having a limit on the user requests.
