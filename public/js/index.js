@@ -99,9 +99,9 @@ $(document).ready(function () {
                 var schoo2Distance = responseDetails.data.property[0].school[1].distance;
 
                 //school3
-                var school3 = responseDetails.data.property[0].school[2].InstitutionName;
-                var school3Rating = responseDetails.data.property[0].school[2].GSTestRating;
-                var school3Distance = responseDetails.data.property[0].school[2].distance;
+                // var school3 = responseDetails.data.property[0].school[2].InstitutionName;
+                // var school3Rating = responseDetails.data.property[0].school[2].GSTestRating;
+                // var school3Distance = responseDetails.data.property[0].school[2].distance;
 
                 //Listed Date
                 var listedDate = responseDetails.data.property[0].vintage.pubDate;
@@ -147,9 +147,9 @@ $(document).ready(function () {
                       school2key: school2,
                       school2Ratingkey: school2Rating,
                       schoo2Distancekey: schoo2Distance,
-                      school3key: school3,
-                      school3Ratingkey: school3Rating,
-                      school3Distancekey: school3Distance,
+                      // school3key: school3,
+                      // school3Ratingkey: school3Rating,
+                      // school3Distancekey: school3Distance,
                       listedDatekey: listedDate
 
                     };//End of object houseDetails
@@ -162,26 +162,28 @@ $(document).ready(function () {
                     i++;
                     return axiosCall(i); // recursive call
                   });//end of axios get price method 
+                 
               }) //End of axios get method to get api school data
               .catch(function (error) {
                 //  // handle error
                 console.log(error);
-              });//end of axios catch error to get api snapshot data
+                
+              });//end of axios catch error to get api school data
 
 
           } // end of else
         }//end of function axiosCall(i)
-
+        
       })//end of axios get method to get api snapshot data    
 
       .catch(function (error) {
         //  // handle error
         console.log(error);
-      });
+      });//end of axios catch error to get api snapshot data
     //********* just comment below line of code to trigger api call and insert api data into db and 
     //  uncomment it once u have enough records in your table  ***************************** 
-
     // window.location = "/api/homeListBasedCity/" + cityName;
+    
   }//end of function getPropertyListApi
   $.get("/username", function (name) {
 

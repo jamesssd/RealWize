@@ -54,9 +54,9 @@ module.exports = function (app) {
       school2keyDb: req.body.school2key,
       school2RatingkeyDb: req.body.school2Ratingkey,
       school2DistanceDb: req.body.school2Distancekey,
-      school3keyDb: req.body.school3key,
-      school3RatingkeyDb: req.body.school3Ratingkey,
-      school3DistanceDb: req.body.school3Distancekey,
+      // school3keyDb: req.body.school3key,
+      // school3RatingkeyDb: req.body.school3Ratingkey,
+      // school3DistanceDb: req.body.school3Distancekey,
       listedDateDB: req.body.listedDatekey
 
       // rooms_amenities: req.body.roomsAmenities,
