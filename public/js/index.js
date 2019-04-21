@@ -182,9 +182,42 @@ $(document).ready(function () {
       });//end of axios catch error to get api snapshot data
     //********* just comment below line of code to trigger api call and insert api data into db and 
     //  uncomment it once u have enough records in your table  ***************************** 
-    // window.location = "/api/homeListBasedCity/" + cityName;
+    window.location = "/api/homeListBasedCity/" + cityName;
     
   }//end of function getPropertyListApi
+
+  //Favoriting homes
+  $(".favorite").click(function () 
+{
+  $(this).toggleClass("main");
+//if icon clicked and  = red
+if ($(this).hasClass("main")) {
+  
+  console.log("INSERTING FAVORITE");
+  
+
+  //EXECUTING SAVING OF FAVOURITED HOMES
+  $.post("/api/insertFavourite", userTableData, function () {
+    iconRed = 1;
+  });
+
+}//end of if(iconRed === 1)
+
+//if icon clicked again and  != red
+else {
+  //EXECUTING SAVING OF FAVOURITED HOMES
+  console.log("DELETING FAVORITE");
+  $.ajax({
+    method: "DELETE",
+    url: `/api/deleteFavourite/${userId}/${homeId}`
+  })
+    .then(function () {
+      // getPosts(postCategorySelect.val());
+      iconRed = 0;
+    });
+}//end  of else if (iconRed === 1)
+ });//End of (".favorite").click(function()
+  
   $.get("/username", function (name) {
 
     if (name === "false") return;
@@ -256,39 +289,5 @@ $(document).ready(function () {
   };
   var particleCanvas = new ParticleNetwork(canvasDiv, options);
 
-
-
-//==============================================
-
-$(".favorite").click(function () 
-{
-//if icon clicked and  = red
-if ($(this).hasClass("main")) {
-  console.log("INSERTING FAVORITE");
-  //EXECUTING SAVING OF FAVOURITED HOMES
-  $.post("/api/insertFavourite", userTableData, function () {
-    iconRed = 1;
-  });
-
-}//end of if(iconRed === 1)
-
-//if icon clicked again and  != red
-else {
-  //EXECUTING SAVING OF FAVOURITED HOMES
-  console.log("DELETING FAVORITE");
-  $.ajax({
-    method: "DELETE",
-    url: `/api/deleteFavourite/${userId}/${homeId}`
-  })
-    .then(function () {
-      // getPosts(postCategorySelect.val());
-      iconRed = 0;
-    });
-}//end  of else if (iconRed === 1)
- });//End of ("#1").click(function()
-
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-//end of document.ready function
 
 });//end of document.ready function
