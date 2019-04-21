@@ -7,17 +7,17 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // if req.user is true, that means that the user is logged in
     console.log("REQ.USER ", req.user);
-    if (req.user) {
+    // if (req.user) {
       console.log("doing login");
       console.log("REQ.USER ", req.user);
       var hbsObject = {
         user: req.user
       };
       res.render("index", hbsObject);
-    } else {
-      console.log("not doing login");
-      res.render("index");
-    }
+    // } else {
+      // console.log("not doing login");
+      // res.render("index");
+    // }
   });//End of app.get(/)
 
   // POST route for inserting api property data into housings table
@@ -54,9 +54,9 @@ module.exports = function (app) {
       school2keyDb: req.body.school2key,
       school2RatingkeyDb: req.body.school2Ratingkey,
       school2DistanceDb: req.body.school2Distancekey,
-      school3keyDb: req.body.school3key,
-      school3RatingkeyDb: req.body.school3Ratingkey,
-      school3DistanceDb: req.body.school3Distancekey,
+      // school3keyDb: req.body.school3key,
+      // school3RatingkeyDb: req.body.school3Ratingkey,
+      // school3DistanceDb: req.body.school3Distancekey,
       listedDateDB: req.body.listedDatekey
 
       // rooms_amenities: req.body.roomsAmenities,
