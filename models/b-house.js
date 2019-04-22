@@ -185,6 +185,7 @@ module.exports = function(sequelize, DataTypes) {
     // Associating Houses with Posts
     // When an Houses is deleted, also delete any associated Posts
     Housing.hasMany(models.Favorites);
+    Housing.hasMany(models.images)
   };
   return Housing;
 };
